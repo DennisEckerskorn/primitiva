@@ -1,21 +1,22 @@
+
 package com.grupoclase.dynamicarray;
 
 
 import java.util.Arrays;
 
-public class DynamicArray {
+public class GenericDynamicArray<T> {
     private static final float GROW_FACTOR = 2f;
     private static final int DEFAULT_CAPACITY = 20;
-    private double[] data;
+    private Object[] data;
     private int elementCount;
 
     //Constructor
-    public DynamicArray(int capacidadInicial) {
-        data = new double[capacidadInicial];
+    public GenericDynamicArray(int capacidadInicial) {
+        data = new Object[capacidadInicial];
         elementCount = 0;
     }
 
-    public DynamicArray() {
+    public GenericDynamicArray() {
         this(DEFAULT_CAPACITY);
     }
 
@@ -25,7 +26,7 @@ public class DynamicArray {
      * @param value double, valor a añadir al array.
      * @return true si se ha realizado correctamente.
      */
-    public boolean add(double value) {
+    public boolean add(T value) {
         if(isFull()) {
             expandArray();
         }
@@ -41,7 +42,7 @@ public class DynamicArray {
      * @param value double, valor que se inserta.
      * @return devuelve true si el valor se ha insertado correctamente y false si no se ha podido hacer correctamente.
      */
-    public boolean add(int index, double value) {
+    public boolean add(int index, T value) {
         if(index >= elementCount || index < 0) {
             return false;
         }
@@ -75,11 +76,12 @@ public class DynamicArray {
      * @param index índice int.
      * @return devuelve el valor del índice bbuscado en double.
      */
-    public double remove(int index) {
+    @SuppressWarnings("unchecked")
+    public T remove(int index) {
         if(index >= elementCount || index < 0) {
-            return Double.POSITIVE_INFINITY;
+            return null;
         }
-        double removedValueFromIndex = data[index];
+        T removedValueFromIndex = (T) data[index];
         moveToLeft(index);
         return removedValueFromIndex;
     }
@@ -92,11 +94,12 @@ public class DynamicArray {
      * @param value double, valor a eliminar.
      * @return el valor que se busca y se quita del array.
      */
-    public double remove(double value) {
-        double removedValue = Double.POSITIVE_INFINITY;
+    @SuppressWarnings("unchecked")
+    public T remove(T value) {
+        T removedValue = null;
         for(int i = 0; i < elementCount; i++) {
             if(data[i] == value) {
-                removedValue = data[i];
+                removedValue = (T) data[i];
                 moveToLeft(i);
                 return removedValue;
             }
@@ -109,11 +112,12 @@ public class DynamicArray {
      * @param index índice buscado.
      * @return el valor del índice buscado.
      */
-    public double get(int index) {
+    @SuppressWarnings("unchecked")
+    public T get(int index) {
         if(index >= elementCount || index < 0) {
-            return Double.POSITIVE_INFINITY;
+            return null;
         }
-        return data[index];
+        return (T) data[index];
     }
 
     /**
@@ -122,7 +126,7 @@ public class DynamicArray {
      * @param value valor
      * @return true si se ha sobreescrito correctamente.
      */
-    public boolean set(int index, double value) {
+    public boolean set(int index, T value) {
         if(index >= elementCount || index < 0) {
             return false;
         }
@@ -147,7 +151,7 @@ public class DynamicArray {
      * Finalmente se apunta el array expandido al array original para realizar la copia.
      */
     private void expandArray() {
-        double[] arrayExpanded = new double[Math.round(data.length * GROW_FACTOR)];
+        Object[] arrayExpanded = new Object[Math.round(data.length * GROW_FACTOR)];
         for(int i = 0; i < elementCount; i++) {
             arrayExpanded[i] = data[i];
         }
@@ -159,7 +163,7 @@ public class DynamicArray {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DynamicArray that = (DynamicArray) o;
+        GenericDynamicArray that = (GenericDynamicArray) o;
 
         if (elementCount != that.elementCount) return false;
         for(int i = 0; i < elementCount; i++) {
@@ -175,7 +179,7 @@ public class DynamicArray {
     public int hashCode() {
         // Habría que crear una función hash que solo tuviese en cuenta
         // los primeros tope - 1 elementos.
-        double[] effectiveArray = new double[elementCount];
+        Object[] effectiveArray = new Object[elementCount];
         for(int i = 0; i < effectiveArray.length; i++) {
             effectiveArray[i] = data[i];
         }
@@ -189,7 +193,7 @@ public class DynamicArray {
         StringBuilder sb = new StringBuilder();
         sb.append("[ ");
         for(int i = 0; i < elementCount; i++) {
-            sb.append(String.format("%.02f", data[i]));
+            sb.append(data[i]).append("\n");
         }
         sb.append(" ]");
         return sb.toString();
