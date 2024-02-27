@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,23 +24,27 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2cr215WhdWetRcXAGibbjlwlSh4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dennis",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase/dynamicarray",
+    "onboarding.tips.debug.path": "C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase/Main.java",
+    "settings.editor.selected.configurable": "settings.space"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dennis\IdeaProjects\primitiva\src\main\java\com\grupoclase\dynamicarray" />
       <recent name="C:\Users\Dennis\IdeaProjects\primitiva\src\main\java\com\grupoclase" />
       <recent name="C:\Users\Dennis\IdeaProjects\primitiva\src\main\java\com\grupoclase\lib" />
     </key>
