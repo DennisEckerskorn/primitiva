@@ -1,4 +1,5 @@
 package com.grupoclase.resources;
 
-public class bombo {
+public class Bombo {
+
 }
