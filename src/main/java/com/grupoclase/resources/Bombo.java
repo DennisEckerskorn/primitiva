@@ -10,12 +10,12 @@ public class Bombo {
     private int CANTIDAD_NUMS_BOMBO_PEQUENO = 10;
     private Random random = new Random();
 
-    private GenericDynamicArray bomboGrande;
-    private GenericDynamicArray bomboPequeno;
+    private GenericDynamicArray <Integer>bomboGrande;
+    private GenericDynamicArray <Integer>bomboPequeno;
 
     public Bombo() {
-        bomboGrande = new GenericDynamicArray();
-        bomboPequeno = new GenericDynamicArray();
+        bomboGrande = new GenericDynamicArray<>();
+        bomboPequeno = new GenericDynamicArray<>();
         for (int i = 0; i < CANTIDAD_NUMS_BOMBO_GRANDE; i++) {
             int num = i;
             bomboGrande.add(num+1);
@@ -50,7 +50,6 @@ public class Bombo {
 
 
     public int[] extraerCombinacionGanadora (int cantidadNums){
-
         int[] arrayGanadores = new int[cantidadNums];
 
         for (int i = 0; i < cantidadNums; i++) {
