@@ -6,7 +6,7 @@ import java.util.Random;
 
 //jon
 public class Bombo {
-    private int CANTIDAD_NUMS_BOMBO_GRANDE = 50;
+    private int CANTIDAD_NUMS_BOMBO_GRANDE = 49;
     private int CANTIDAD_NUMS_BOMBO_PEQUENO = 10;
     private Random random = new Random();
 
@@ -23,7 +23,7 @@ public class Bombo {
         }
         for (int i = 0; i < CANTIDAD_NUMS_BOMBO_PEQUENO; i++) {
             int num = i;
-            bomboPequeno.add(num+1);
+            bomboPequeno.add(num);
         }
     }
     private int extraerNum(){
