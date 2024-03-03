@@ -3,18 +3,27 @@ package com.grupoclase.lib;
 import java.util.Scanner;
 
 public class ConsoleMenu {
+    //Atributos de la clase:
     private static Scanner scanner = new Scanner(System.in);
     private static final int CAPACIDAD_INICIAL = 5;
     private final String texto;
     private ConsoleMenu[] opciones;
     private int numOpciones;
 
+    /**
+     * Constructor ConsoleMenu que recibe un texto como título del menú
+     * @param texto String
+     */
     public ConsoleMenu(String texto) {
         this.texto = texto;
         this.opciones = null;
         numOpciones = 0;
     }
 
+    /**
+     * Método que crea un array de mayor tamaño y copia todos los valores de un array al otro.
+     * Finalmente se apunta el puntero de copia al puntero del array inicial, de este modo el array expandido es opciones.
+     */
     private void ampliarCapacidad() {
         ConsoleMenu[] copia = new ConsoleMenu[opciones.length * 2];
         for(int i = 0; i < opciones.length; i++) {
@@ -23,6 +32,12 @@ public class ConsoleMenu {
         opciones = copia;
     }
 
+    /**
+     * Método que permite añadir una opción de texto al array de Strings.
+     * Cada Texto añadido es una opción nueva del menú.
+     * @param texto String
+     * @return un objeto de tipo ConsoleMenu.
+     */
     public ConsoleMenu addOpcion(String texto) {
         if(opciones == null) {
             opciones = new ConsoleMenu[CAPACIDAD_INICIAL];
@@ -35,6 +50,11 @@ public class ConsoleMenu {
         return resultado;
     }
 
+
+    /**
+     * Método que valida el número introducido del usuario y a la vez muestra las opciones del menú que se han añadido.
+     * @return la opción introducida del usuario.
+     */
     public int mostrarMenuInt() {
         boolean valido;
         int opcion;
@@ -46,6 +66,10 @@ public class ConsoleMenu {
         return opcion;
     }
 
+    /**
+     *  Método que valida el carácter introducido del usuario y a la vez muestra las opciones del menú que se han añadido.
+     * @return la opción introducida del usuario.
+     */
     public char mostrarMenuChar() {
         boolean valido;
         char letra;
@@ -74,6 +98,11 @@ public class ConsoleMenu {
         return letra;
     }
 
+    /**
+     * Método toString para mostrar el menú completo
+     * Se recorre el array y se añade cada opcion al StringBuilder.
+     * @return menu completo de opciones, con números o si modifica con el método numToChar(i+1) con carácteres.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -8,9 +8,6 @@ import java.util.Scanner;
 public class LibIO {
     private static Scanner lector = new Scanner(System.in);
 
-
-
-
     // **** METHODS TO READ USER INPUT WITH SCANNER FOR DIFFERENT DATA TYPES, NO VALIDATION: ****
 
     /**

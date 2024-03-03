@@ -2,18 +2,22 @@ package com.grupoclase.resources;
 
 import com.grupoclase.lib.ConsoleMenu;
 
-//Classe que maneja la entrada/salida y los menus de la primitiva.
-public class Principal {
+/*
+Classe que maneja la entrada/salida y los menus de la primitiva.
+ */
+
+public class JuegoPrimitiva {
     private ConsoleMenu menu;
     private ConsoleMenu menuJuego;
+    private ConsoleMenu menuJugadaUnica;
 
-    public Principal() {
+    public JuegoPrimitiva() {
         //Se crea un objeto de la clase ConsoleMenu y se usa para añadir opciónes al menú, mediante un método.
         menu = new ConsoleMenu("PRIMITIVA");
         menu.addOpcion("Jugar ...");
         menu.addOpcion("Salir.");
 
-        //Menú para el tipo de juego.
+        //Menú para el tipo o modalidad de juego.
         menuJuego = new ConsoleMenu("TIPOS DE JUEGO");
         menuJuego.addOpcion("Juego único ...");
         menuJuego.addOpcion("Jugar hasta obtener premio (reintegro) ...");
@@ -21,6 +25,12 @@ public class Principal {
         menuJuego.addOpcion("Ciclo de 10000 sorteos");
         menuJuego.addOpcion("Jugar hasta obtener premio categoría especial");
         menuJuego.addOpcion("Volver al menú principal");
+
+        //Menú para la jugada unica, automatico o manual.
+        menuJugadaUnica = new ConsoleMenu("JUGADA ÚNICA");
+        menuJugadaUnica.addOpcion("Elegir números manualmente ...");
+        menuJugadaUnica.addOpcion("Elegir números al azar ...");
+
         int opcion;
 
         do {
@@ -50,7 +60,7 @@ public class Principal {
         opcion = menuJuego.mostrarMenuInt();
         switch (opcion) {
             case 1:
-                //Juego único
+                menuJugadaUnica();
                 break;
             case 2:
                 //Jugar hasta obtener premio (reintegro)
@@ -68,4 +78,51 @@ public class Principal {
                 System.out.println("EL valor introducido es inválido, solo valores entre 1 - 5");
         }
     }
+
+    public void menuJugadaUnica() {
+        int opcion;
+
+        opcion = menuJugadaUnica.mostrarMenuInt();
+        switch (opcion) {
+            case 1:
+                //Juego único
+
+                /*
+                   Pasos a seguir, opcion Manual:
+                    1 - Mostrar los números disponibles de un ticket:
+                        Bombo1:
+                        1 2 3 4 5 6 7 8 9 10
+                        11 12 13 14 15 16 17
+                        18 19 20 21 22 23 24
+                        25 26 27 28 29 30 31
+                        32 33 34 35 36 37 38
+                        39 40 41 42 43 44 45
+                        46 47 48 49
+                    2 - Elegir 6 números de este ticket manualmente
+
+                    Para los dos casos:
+                    1 - Generar una combinacionGanadora y comparar si los números elegidos del usuario (auto o manual)
+                        coinciden con los números de la combinación Ganadora.
+                 */
+                break;
+            case 2:
+                /*
+                Pasos a seguir, opcion Automatica:
+                    1 - Generar 6 números aleatorios entre 1 y 49.
+                    2 - Mostrar los números aleatorios generados al usuario.
+
+                    Para los dos casos:
+                    1 - Generar una combinacionGanadora y comparar si los números elegidos del usuario (auto o manual)
+                        coinciden con los números de la combinación Ganadora.
+
+                        PREGUNTA? Como funciona el tema del reintegro aqui?
+                 */
+                break;
+            default:
+                System.out.println("El valor introducido es inválida, solo valores entre 1 - 2");
+
+        }
+    }
 }
+
+

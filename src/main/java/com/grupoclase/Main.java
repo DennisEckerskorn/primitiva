@@ -1,10 +1,9 @@
 package com.grupoclase;
 
-import com.grupoclase.lib.ConsoleMenu;
-import com.grupoclase.resources.Principal;
+import com.grupoclase.resources.JuegoPrimitiva;
 
 public class Main {
     public static void main(String[] args) {
-        Principal principal = new Principal();
+        JuegoPrimitiva principal = new JuegoPrimitiva();
     }
 }
