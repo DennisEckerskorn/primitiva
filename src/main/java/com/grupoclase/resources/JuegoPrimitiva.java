@@ -89,7 +89,6 @@ public class JuegoPrimitiva {
             case 1:
                 //Juego único
 
-                elegir8nums();
                 /*
                    Pasos a seguir, opcion Manual:
                     1 - Mostrar los números disponibles de un ticket:
@@ -129,8 +128,9 @@ public class JuegoPrimitiva {
         }
     }
 
-    private static void elegir8nums(){
-        int[] combinacionElegida = new int[8];
+    private static void elegir6nums(){
+        int[] combinacionElegida = new int[6];
+        //TODO si hace falta, modificar el metodo para que los números elegidos no se puedan repetir
         int num = leerInt(1,49);
         num = combinacionElegida[0];
         num = leerInt(1,49);
@@ -143,10 +143,6 @@ public class JuegoPrimitiva {
         num = combinacionElegida[4];
         num = leerInt(1,49);
         num = combinacionElegida[5];
-        num = leerInt(1,49);
-        num = combinacionElegida[6];
-        num = leerInt(1,49);
-        num = combinacionElegida[7];
 
     }
     private static int leerInt(int min, int max){
