@@ -2,6 +2,8 @@ package com.grupoclase.resources;
 
 import com.grupoclase.lib.ConsoleMenu;
 
+import java.util.Scanner;
+
 /*
 Classe que maneja la entrada/salida y los menus de la primitiva.
  */
@@ -87,6 +89,7 @@ public class JuegoPrimitiva {
             case 1:
                 //Juego único
 
+                elegir8nums();
                 /*
                    Pasos a seguir, opcion Manual:
                     1 - Mostrar los números disponibles de un ticket:
@@ -104,6 +107,8 @@ public class JuegoPrimitiva {
                     1 - Generar una combinacionGanadora y comparar si los números elegidos del usuario (auto o manual)
                         coinciden con los números de la combinación Ganadora.
                  */
+
+
                 break;
             case 2:
                 /*
@@ -122,6 +127,47 @@ public class JuegoPrimitiva {
                 System.out.println("El valor introducido es inválida, solo valores entre 1 - 2");
 
         }
+    }
+
+    private static void elegir8nums(){
+        int[] combinacionElegida = new int[8];
+        int num = leerInt(1,49);
+        num = combinacionElegida[0];
+        num = leerInt(1,49);
+        num = combinacionElegida[1];
+        num = leerInt(1,49);
+        num = combinacionElegida[2];
+        num = leerInt(1,49);
+        num = combinacionElegida[3];
+        num = leerInt(1,49);
+        num = combinacionElegida[4];
+        num = leerInt(1,49);
+        num = combinacionElegida[5];
+        num = leerInt(1,49);
+        num = combinacionElegida[6];
+        num = leerInt(1,49);
+        num = combinacionElegida[7];
+
+    }
+    private static int leerInt(int min, int max){
+        Scanner lector = new Scanner(System.in);
+        int respuesta = 0;
+        boolean valido = false;
+        do {
+            if (lector.hasNextInt()) {
+                respuesta = lector.nextInt();
+                if (respuesta >= min && respuesta <= max) {
+                    valido = true;
+                } else {
+                    System.out.println("Por favor, introduce un número dentro del rango (" + min + " - " + max + ").");
+                }
+            } else {
+                System.out.println("Por favor, introduce un número válido.");
+                lector.next(); // Limpiar el buffer de entrada
+            }
+        } while (!valido);
+        lector.nextLine();
+        return respuesta;
     }
 }
 
