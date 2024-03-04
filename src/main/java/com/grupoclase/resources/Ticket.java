@@ -1,7 +1,7 @@
 package com.grupoclase.resources;
 
 public class Ticket {
-    Bombo bombo = new Bombo();
+    Bombo bombo = new Bombo(0,49);
 
     /**
      * este Método, obtendrá un array de números enteros y los comparará con el resultado del bombo

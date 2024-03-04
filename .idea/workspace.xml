@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="añadidio javadoc para elegirNums">
+    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="añadida validación extra al menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Bombo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Bombo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709565068834</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="añadida validación extra al menu">
+      <option name="closed" value="true" />
+      <created>1709575064672</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709575064672</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +191,7 @@
     <MESSAGE value="añadido metodo en tiquet para obtener la cantidad de aciertos" />
     <MESSAGE value="optimizado el metodo elegir6nums y cambiado el nombre, además de añadir funcionalidad para elegir la cantidad de números" />
     <MESSAGE value="añadidio javadoc para elegirNums" />
-    <option name="LAST_COMMIT_MESSAGE" value="añadidio javadoc para elegirNums" />
+    <MESSAGE value="añadida validación extra al menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="añadida validación extra al menu" />
   </component>
 </project>
