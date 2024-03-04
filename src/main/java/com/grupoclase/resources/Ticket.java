@@ -10,6 +10,7 @@ public class Ticket {
      * @return
      * cantidad de aciertos desde el último número hacia el primero
      */
+
     public int compararResultado6nums (int [] numElegidos){
         int[] numGanadores = bombo.extraerCombinacionGanadora(6);
         int cantidadAciertos = 0;
