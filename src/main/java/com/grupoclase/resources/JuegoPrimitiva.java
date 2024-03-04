@@ -129,6 +129,11 @@ public class JuegoPrimitiva {
         }
     }
 
+    /**
+     * metodo para el input de los números elegidos manualmente, pregunta el número y lo mete dentro de un array dinamico
+     * llamada combinacionElegida.
+     * @param cantidadNums
+     */
     private static void elegirNums(int cantidadNums){
         //TODO si hace falta, modificar el metodo para que los números elegidos no se puedan repetir
         GenericDynamicArray combinacionElegida = new <Integer>GenericDynamicArray();
