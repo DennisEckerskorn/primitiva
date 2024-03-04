@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="wip bombo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/JuegoPrimitiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/JuegoPrimitiva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Ticket.java" afterDir="false" />
-    </list>
+    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="añadido metodo en tiquet para obtener la cantidad de aciertos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709307795809</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="añadido metodo en tiquet para obtener la cantidad de aciertos">
+      <option name="closed" value="true" />
+      <created>1709564251465</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709564251465</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +160,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="wip bombo" />
-    <option name="LAST_COMMIT_MESSAGE" value="wip bombo" />
+    <MESSAGE value="añadido metodo en tiquet para obtener la cantidad de aciertos" />
+    <option name="LAST_COMMIT_MESSAGE" value="añadido metodo en tiquet para obtener la cantidad de aciertos" />
   </component>
 </project>

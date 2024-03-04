@@ -1,5 +1,6 @@
 package com.grupoclase.resources;
 
+import com.grupoclase.dynamicarray.GenericDynamicArray;
 import com.grupoclase.lib.ConsoleMenu;
 
 import java.util.Scanner;
@@ -128,24 +129,19 @@ public class JuegoPrimitiva {
         }
     }
 
-    private static void elegir6nums(){
-        int[] combinacionElegida = new int[6];
+    private static void elegirNums(int cantidadNums){
         //TODO si hace falta, modificar el metodo para que los números elegidos no se puedan repetir
-        int num = leerInt(1,49);
-        num = combinacionElegida[0];
-        num = leerInt(1,49);
-        num = combinacionElegida[1];
-        num = leerInt(1,49);
-        num = combinacionElegida[2];
-        num = leerInt(1,49);
-        num = combinacionElegida[3];
-        num = leerInt(1,49);
-        num = combinacionElegida[4];
-        num = leerInt(1,49);
-        num = combinacionElegida[5];
+        GenericDynamicArray combinacionElegida = new <Integer>GenericDynamicArray();
+        int num;
+        for (int i = 0; i < cantidadNums-1; i++) {
+            num = leerInt(1,49);
+            combinacionElegida.add(num);
+        }
+
+
 
     }
-    private static int leerInt(int min, int max){
+    private static  int leerInt(int min, int max){
         Scanner lector = new Scanner(System.in);
         int respuesta = 0;
         boolean valido = false;
