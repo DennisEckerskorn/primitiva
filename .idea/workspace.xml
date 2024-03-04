@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="añadidio javadoc para elegirNums">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_23__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_23__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_32__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_34__Changes_.xml" afterDir="false" />
+    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="subo la clase Primitiva categories aunque me parece que no nos servira ya que es como las categorias de premios, ujn simple enumerado.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/Ticket.java" afterDir="false" />
     </list>
@@ -162,7 +159,31 @@
       <option name="project" value="LOCAL" />
       <updated>1709565068834</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="subo la clase Primitiva categories aunque me parece que no nos servira ya que es como las categorias de premios, ujn simple enumerado.">
+      <option name="closed" value="true" />
+      <created>1709577012354</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709577012354</updated>
+    </task>
+    <task id="LOCAL-00007" summary="subo la clase Primitiva categories aunque me parece que no nos servira ya que es como las categorias de premios, ujn simple enumerado.">
+      <option name="closed" value="true" />
+      <created>1709577033210</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709577033210</updated>
+    </task>
+    <task id="LOCAL-00008" summary="subo la clase Primitiva categories aunque me parece que no nos servira ya que es como las categorias de premios, ujn simple enumerado.">
+      <option name="closed" value="true" />
+      <created>1709577062690</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709577062690</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +203,7 @@
     <MESSAGE value="añadidio javadoc para elegirNums" />
     <MESSAGE value="añadido metodo en tiquet para obtener la cantidad de aciertos" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+    <MESSAGE value="subo la clase Primitiva categories aunque me parece que no nos servira ya que es como las categorias de premios, ujn simple enumerado." />
+    <option name="LAST_COMMIT_MESSAGE" value="subo la clase Primitiva categories aunque me parece que no nos servira ya que es como las categorias de premios, ujn simple enumerado." />
   </component>
 </project>
