@@ -10,7 +10,7 @@ public class Ticket {
     /**
      * Constructor que crea un boleto con una combinación de números especificada por el jugador.
      *
-     * @param numeros Un array de enteros que representa la combinación de números del boleto.
+     * @param numeros que son los primeros 6 Un array de enteros que representa la combinación de números del boleto.
      */
     public Ticket(int[] numeros) {
         this.numeros = Arrays.copyOf(numeros, numeros.length);
