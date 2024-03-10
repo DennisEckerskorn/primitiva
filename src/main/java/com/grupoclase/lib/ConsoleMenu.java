@@ -58,11 +58,8 @@ public class ConsoleMenu {
     public int mostrarMenuInt() {
         boolean valido;
         int opcion;
-        do{
-            System.out.println(this);
-            opcion = Integer.parseInt(scanner.nextLine());
-            valido = opcion >= 1 && opcion <= numOpciones;
-        }while(!valido);
+        System.out.println(this);
+        opcion = leerInt(1,numOpciones);
         return opcion;
     }
 
@@ -96,6 +93,27 @@ public class ConsoleMenu {
             letra = (char) i;
         }
         return letra;
+    }
+
+    private int leerInt(int min, int max){
+        Scanner lector = new Scanner(System.in);
+        int respuesta = 0;
+        boolean valido = false;
+        do {
+            if (lector.hasNextInt()) {
+                respuesta = lector.nextInt();
+                if (respuesta >= min && respuesta <= max) {
+                    valido = true;
+                } else {
+                    System.out.println("Por favor, introduce un número dentro del rango (" + min + " - " + max + ").");
+                }
+            } else {
+                System.out.println("Por favor, introduce un número válido.");
+                lector.next(); // Limpiar el buffer de entrada
+            }
+        } while (!valido);
+        lector.nextLine();
+        return respuesta;
     }
 
     /**
