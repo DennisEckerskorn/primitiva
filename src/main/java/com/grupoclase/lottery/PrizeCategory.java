@@ -28,6 +28,15 @@ public enum PrizeCategory {
         return matchingNumbers;
     }
 
+    /**
+     * Verifica si el usuario es un ganador en una categoría de premios específica basada en los números sorteados,
+     * los números seleccionados por el usuario y los números especiales.
+     *
+     * @param drawnNumbers Los números sorteados en la lotería.
+     * @param userNumbers Los números seleccionados por el usuario en el boleto de lotería.
+     * @param specialNumbers Los números especiales (por ejemplo, reintegro) en la lotería.
+     * @return {@code true} si el usuario es un ganador en la categoría de premios, {@code false} en caso contrario.
+     */
     public boolean isWinner(GenericDynamicArray<Integer> drawnNumbers, GenericDynamicArray<Integer> userNumbers, GenericDynamicArray<Integer> specialNumbers) {
         int matchingNumbers = 0;
         int matchingSpecialNumbers = 0;
