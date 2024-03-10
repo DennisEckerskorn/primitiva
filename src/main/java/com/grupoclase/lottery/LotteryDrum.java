@@ -1,11 +1,11 @@
-package com.grupoclase.resources;
+package com.grupoclase.lottery;
 
 import com.grupoclase.dynamicarray.GenericDynamicArray;
 
 import java.util.Random;
 
 //jon
-public class Bombo {
+public class LotteryDrum {
     private int CANTIDAD_NUMS_BOMBO_GRANDE = 49;
     private int CANTIDAD_NUMS_BOMBO_PEQUENO = 10;
     private Random random = new Random();
@@ -13,7 +13,7 @@ public class Bombo {
     private GenericDynamicArray <Integer>bomboGrande;
     private GenericDynamicArray <Integer>bomboPequeno;
 
-    public Bombo() {
+    public LotteryDrum() {
         bomboGrande = new GenericDynamicArray<>();
         bomboPequeno = new GenericDynamicArray<>();
         for (int i = 0; i < CANTIDAD_NUMS_BOMBO_GRANDE; i++) {

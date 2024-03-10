@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="wip bombo">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_23_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_23__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_32_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_32__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_34_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_34__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/lib/ConsoleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lib/ConsoleMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/lib/LibIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lib/LibIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/JuegoPrimitiva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/TipoJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/TipoJuego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Bombo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryDrum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/JuegoPrimitiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/UserTicket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/TipoJuego.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +77,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/DennisE/IdeaProjects/primitiva&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase/Main.java&quot;,

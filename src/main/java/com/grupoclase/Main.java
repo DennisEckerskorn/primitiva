@@ -1,9 +1,9 @@
 package com.grupoclase;
 
-import com.grupoclase.resources.JuegoPrimitiva;
+import com.grupoclase.lottery.LotteryGame;
 
 public class Main {
     public static void main(String[] args) {
-        JuegoPrimitiva principal = new JuegoPrimitiva();
+        LotteryGame principal = new LotteryGame();
     }
 }
