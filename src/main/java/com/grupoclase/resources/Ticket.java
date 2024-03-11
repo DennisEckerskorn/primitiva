@@ -1,7 +1,9 @@
 package com.grupoclase.resources;
 
+import com.grupoclase.lottery.LotteryDrum;
+
 public class Ticket {
-    Bombo bombo = new Bombo(0,49);
+    LotteryDrum bombo = new LotteryDrum(0,49);
 
     /**
      * este Método, obtendrá un array de números enteros y los comparará con el resultado del bombo
