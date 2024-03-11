@@ -227,6 +227,31 @@ public class LotteryGame {
 
      */
 
+    /*
+
+    public void gameOf10000Draws() {
+        int[] prizeCounter = new int[PrizeCategory.values().length];
+
+        for (int i = 0; i < 10000; i++) {
+            GenericDynamicArray<Integer> firstDrumNumbers = firstDrum.rotateAndDraw(6);
+            GenericDynamicArray<Integer> secondDrumNumbers = secondDrum.rotateAndDraw(2);
+
+            for (PrizeCategory category : PrizeCategory.values()) {
+                if (category.isWinner(firstDrumNumbers, userNumbers, secondDrumNumbers)) {
+                    prizeCounter[category.ordinal()]++;
+                }
+            }
+        }
+
+
+        System.out.println("Resumen de premios: ");
+        for (PrizeCategory category : PrizeCategory.values()) {
+            System.out.println(category.getCategoryName() + ": " + prizeCounter[category.ordinal()]);
+        }
+    }
+
+     */
+
 
 }
 
