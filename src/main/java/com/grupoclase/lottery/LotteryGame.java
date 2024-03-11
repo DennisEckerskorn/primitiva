@@ -12,14 +12,14 @@ public class LotteryGame {
     private ConsoleMenu subMenu;
     private ConsoleMenu numberMenu;
     private UserTicket userTicket;
-    private LotteryDrum firstDrum;
-    private LotteryDrum secondDrum;
+    private LotteryDrum bigDrum;
+    private LotteryDrum littleDrum;
 
     public LotteryGame() {
-        //firstDrum = new LotteryDrum("Big Drum", 1, 49);
-        //secondDrum = new LotteryDrum("Small Drum", 0, 9);
-        System.out.println(firstDrum); //todo: TESTING PURPOSE
-        System.out.println(secondDrum); //TODO: TESTING PURPOSE
+        bigDrum = new LotteryDrum(1,49);
+        bigDrum = new LotteryDrum(0,9);
+        System.out.println(bigDrum); //todo: TESTING PURPOSE
+        System.out.println(littleDrum); //TODO: TESTING PURPOSE
 
         mainMenu = new ConsoleMenu("PRIMITIVA");
         mainMenu.addOpcion("Jugar");
