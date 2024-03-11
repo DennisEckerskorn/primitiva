@@ -103,7 +103,7 @@ public class LotteryGame {
      *
      * @return ticketManual with numbers, also the 7 number is added randomly (refund).
      */
-    /*
+
     public UserTicket obtainUserNumbersManual(int quantityNumbers) {
         if (userTicket == null || userTicket.getUserData().size() == 0) {
             userTicket = new UserTicket("DennisManual");
@@ -129,7 +129,7 @@ public class LotteryGame {
         }
         return userTicket;
     }
-    */
+
 
     /**
      * Method to create a new object with random ticket numbers
@@ -138,18 +138,18 @@ public class LotteryGame {
      * @return array with random numbers (ticketManual).
      */
     public UserTicket obtainAutomaticTicket() {
-        userTicket = new UserTicket("DennisAuto");
-        userTicket.generateRandomTicket();
+        userTicket = new UserTicket();
+        userTicket.generateNumbers();
         System.out.println(userTicket);
         return userTicket;
     }
 
     private void playSingleGame(UserTicket userTicket) {
         //Se gira el bombo y se extraen los números:
-        GenericDynamicArray<Integer> firstDrumNumbers = firstDrum.rotateAndDraw(6);
-        GenericDynamicArray<Integer> secondDrumNumbers = secondDrum.rotateAndDraw(2);
+        GenericDynamicArray<Integer> firstDrumNumbers = bigDrum.rotateAndDraw(6);
+        GenericDynamicArray<Integer> secondDrumNumbers = littleDrum.rotateAndDraw(2);
         //Se obtienen los números del usuario:
-        GenericDynamicArray<Integer> userNumbers = userTicket.getUserData();
+        int[] userNumbers = userTicket.getNumbers();
 
         System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
         System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
