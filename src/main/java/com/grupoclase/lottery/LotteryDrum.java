@@ -27,7 +27,6 @@ public class LotteryDrum {
         }
     }
 
-
     public void resetBombo(){
         GenericDynamicArray array1 = new GenericDynamicArray();
         GenericDynamicArray array2 = new GenericDynamicArray();
