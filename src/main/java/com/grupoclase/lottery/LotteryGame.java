@@ -9,11 +9,12 @@ Classe que maneja la entrada/salida y los menus de la primitiva.
 
 public class LotteryGame {
     private ConsoleMenu mainMenu;
-    private ConsoleMenu subMenu;
-    private ConsoleMenu numberMenu;
+    private ConsoleMenu subMenuTicket;
+    private ConsoleMenu subMenuGameMode;
     private UserTicket userTicket;
     private LotteryDrum bigDrum;
     private LotteryDrum littleDrum;
+    private int[] ticket;
 
     public LotteryGame() {
         bigDrum = new LotteryDrum(1,49);
@@ -25,13 +26,14 @@ public class LotteryGame {
         mainMenu.addOpcion("Jugar");
         mainMenu.addOpcion("Salir");
 
-        subMenu = new ConsoleMenu("TIPO DE JUEGO");
-        subMenu.addOpcion("Introducir / Generar números");
-        subMenu.addOpcion("Jugada Única...");
+        subMenuTicket = new ConsoleMenu("TICKET");
+        subMenuTicket.addOpcion("INTRODUCIR MANUALMENTE");
+        subMenuTicket.addOpcion("GENERAR TICKET");
 
-        numberMenu = new ConsoleMenu("OBTENER NÚMEROS");
-        numberMenu.addOpcion("Introducir números manualmente...");
-        numberMenu.addOpcion("Generar números aleatorios...");
+        subMenuGameMode = new ConsoleMenu("MODO DE JUEGO");
+        subMenuGameMode.addOpcion("MODO 1");
+        subMenuGameMode.addOpcion("MODO 2");
+
 
 
         int option;
@@ -42,8 +44,8 @@ public class LotteryGame {
 
             switch (option) {
                 case 1:
+                    ticketMenu();
                     //Jugar
-                    submenu(userTicket);
                     break;
                 case 2:
                     //Salir
@@ -55,41 +57,49 @@ public class LotteryGame {
             }
         } while (option != 2);
     }
-
-    private void submenu(UserTicket userTicket) {
-        int option = subMenu.mostrarMenuInt();
+    private void ticketMenu() {
+        int option = subMenuTicket.mostrarMenuInt();
 
         switch (option) {
             case 1:
-                //Obtener numeros para jugar.
-                numberMenu(userTicket);
+                //metodo que pregunte al usuario los números de uno en uno y devuelva un array de enteros llamado "arrayDeEnteros"
                 break;
             case 2:
-                //playSingleGame(userTicket);
+                //Generar numeros aleatorios y que devuelva un array de enteros llamado "arrayDeEnteros"
                 break;
             default:
                 System.out.println("El número introducido está fuera de rango [ 1 - ?]");
                 break;
         }
+        //al "arrayDeEnteros" habrá que sumarle los números del reintegro, es decir crear un nuevo array con una capacidad superior al "arrayDeEnteros"
+        //usando un bucle for hay que copiar arrayDeEnteros uno por uno al nuevo array con mayor capacidad y agregar los números aleatorios del reintegro al final del array nuevo, el array nuevo se llamará "arrayTicket"
+        //ticket = arrayTicket;
+        subMenuGameMode();
     }
 
-    private void numberMenu(UserTicket userTicket) {
-        int option = numberMenu.mostrarMenuInt();
-
-        UserTicket ticket = null;
+    private void subMenuGameMode() {
+        int option = subMenuGameMode.mostrarMenuInt();
 
         switch (option) {
             case 1:
-                //userTicket = obtainUserNumbersManual(6);
+                juegoUnico();
                 break;
             case 2:
-                //userTicket = obtainAutomaticTicket();
+                jugarHastaPremio();
+                break;
+            case 3:
+                jugarHastaPremioSinReintegro();
+                break;
+            case 4:
+                ciclo10kSorteos();
+                break;
+            case 5:
+                jugarHastaPremioEspecial();
                 break;
             default:
                 System.out.println("El número introducido está fuera de rango [ 1 - ?]");
                 break;
         }
-        submenu(userTicket);
     }
 
 
@@ -104,7 +114,7 @@ public class LotteryGame {
      * @return ticketManual with numbers, also the 7 number is added randomly (refund).
      */
 
-    public UserTicket obtainUserNumbersManual(int quantityNumbers) {
+   /* public UserTicket obtainUserNumbersManual(int quantityNumbers) {
         if (userTicket == null || userTicket.getUserData().size() == 0) {
             userTicket = new UserTicket("DennisManual");
         } else {
@@ -129,14 +139,8 @@ public class LotteryGame {
         }
         return userTicket;
     }
+*/
 
-
-    /**
-     * Method to create a new object with random ticket numbers
-     * Prints the numbers to verify.
-     *
-     * @return array with random numbers (ticketManual).
-     */
     public UserTicket obtainAutomaticTicket() {
         userTicket = new UserTicket();
         userTicket.generateNumbers();
@@ -144,22 +148,20 @@ public class LotteryGame {
         return userTicket;
     }
 
-    private void playSingleGame(UserTicket userTicket) {
+    private void juegoUnico() {
         //Se gira el bombo y se extraen los números:
-        GenericDynamicArray<Integer> firstDrumNumbers = bigDrum.rotateAndDraw(6);
-        GenericDynamicArray<Integer> secondDrumNumbers = littleDrum.rotateAndDraw(2);
-        //Se obtienen los números del usuario:
-        int[] userNumbers = userTicket.getNumbers();
+        int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
+        int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
 
         System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
         System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
-        System.out.println("Tus números: " + userNumbers);
+        System.out.println("Tus números: " + ticket);
 
         boolean anyPrizeWon = false;
 
         for (int i = 0; i < PrizeCategory.values().length; i++) {
             PrizeCategory category = PrizeCategory.values()[i];
-            if (category.isWinner(firstDrumNumbers, userNumbers, secondDrumNumbers)) {
+            if (category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                 System.out.println("¡Felicidades! Has ganado en la categoria " + category.getCategoryName());
                 anyPrizeWon = true;
             }
@@ -169,23 +171,21 @@ public class LotteryGame {
         }
     }
 
-    /*
 
-    public void playUntilPrizeWithRefund(UserTicket userTicket) {
-        while (true) {
 
+    public void jugarHastaPremio() {
+        boolean premio = false;
+        while (premio == false) {
             int numberAttemps = 0;
-
-            GenericDynamicArray<Integer> firstDrumNumbers = firstDrum.rotateAndDraw(6);
-            GenericDynamicArray<Integer> secondDrumNumbers = secondDrum.rotateAndDraw(2);
-            GenericDynamicArray<Integer> userNumbers = userTicket.getUserData();
+            int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
+            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
 
             for (PrizeCategory category : PrizeCategory.values()) {
-                if (category.isWinner(firstDrumNumbers, userNumbers, secondDrumNumbers)) {
+                if (category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                     System.out.println("¡Felicidades! Has ganado en la categoría " + category.getCategoryName());
                     System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
                     System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
-                    System.out.println("Tus números: " + userNumbers);
+                    System.out.println("Tus números: " + ticket);
                     return;
                 }
             }
@@ -193,65 +193,63 @@ public class LotteryGame {
             numberAttemps++;
 
             System.out.println("Has perdido en el sorteo número " + numberAttemps);
+            //TODO añadir que cuando gane "premio" = true;
+            bigDrum.resetBombo();
+            littleDrum.resetBombo();
         }
     }
-      */
 
 
-    /*
 
-    public void playUntilPrizeWithoutRefund(UserTicket userTicket) {
-        while (true) {
+
+
+    public void jugarHastaPremioSinReintegro() {
+        boolean premio = false;
+        while (premio == false) {
 
             int numberAttemps = 0;
+            int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
+            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
 
-            GenericDynamicArray<Integer> firstDrumNumbers = firstDrum.rotateAndDraw(6);
-            GenericDynamicArray<Integer> secondDrumNumbers = secondDrum.rotateAndDraw(2);
-            GenericDynamicArray<Integer> userNumbers = userTicket.getUserData();
 
             for (PrizeCategory category : PrizeCategory.values()) {
-                if (category != PrizeCategory.ESPECIAL && category.isWinner(firstDrumNumbers, userNumbers, secondDrumNumbers)) {
+                if (category != PrizeCategory.ESPECIAL && category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                     System.out.println("¡Felicidades! Has ganado en la categoría " + category.getCategoryName());
                     System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
                     System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
-                    System.out.println("Tus números: " + userNumbers);
+                    System.out.println("Tus números: " + ticket);
                     return;
                 }
             }
             numberAttemps++;
-
-
             System.out.println("Has perdido en el sorteo número" + numberAttemps);
+            //todo añadir que cuando gane "premio" = true;
+            bigDrum.resetBombo();
+            littleDrum.resetBombo();
         }
     }
 
-     */
 
-    /*
 
+
+/*
     public void gameOf10000Draws() {
         int[] prizeCounter = new int[PrizeCategory.values().length];
-
         for (int i = 0; i < 10000; i++) {
             GenericDynamicArray<Integer> firstDrumNumbers = firstDrum.rotateAndDraw(6);
             GenericDynamicArray<Integer> secondDrumNumbers = secondDrum.rotateAndDraw(2);
-
             for (PrizeCategory category : PrizeCategory.values()) {
                 if (category.isWinner(firstDrumNumbers, userNumbers, secondDrumNumbers)) {
                     prizeCounter[category.ordinal()]++;
                 }
             }
         }
-
-
         System.out.println("Resumen de premios: ");
         for (PrizeCategory category : PrizeCategory.values()) {
             System.out.println(category.getCategoryName() + ": " + prizeCounter[category.ordinal()]);
         }
     }
-
-     */
-
+*/
 
 }
 

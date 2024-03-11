@@ -1,0 +1,4 @@
+1.En la clase UserTicket "setNumbers" hay que decidir si se le pasa un array de números o que con ese método se le pregunte al usuario los números directamente
+1.2 En la misma clase, hay que pedir 6 números y generar un séptimo aleatorio (lo pone en el enunciado del ejercicio)
+2.En la clase PrizeCategory hay que adaptar el metodo "isWinner" para que trabaje con array de Enteros
+3.En la clase LotteryGame "gameOf10000Draws" adaptarlo a array de Numeros enteros y añadir los metodos del LotteryDrum.resetBombo
