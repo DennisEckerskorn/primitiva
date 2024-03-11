@@ -137,7 +137,6 @@ public class LotteryGame {
      *
      * @return array with random numbers (ticketManual).
      */
-    /*
     public UserTicket obtainAutomaticTicket() {
         userTicket = new UserTicket("DennisAuto");
         userTicket.generateRandomTicket();
@@ -169,7 +168,36 @@ public class LotteryGame {
             System.out.println("Mala Suerte, no has ganado ningún premio...");
         }
     }
-    */
+
+    /*
+
+    public void playUntilPrizeWithRefund(UserTicket userTicket) {
+        while (true) {
+
+            int numberAttemps = 0;
+
+            GenericDynamicArray<Integer> firstDrumNumbers = firstDrum.rotateAndDraw(6);
+            GenericDynamicArray<Integer> secondDrumNumbers = secondDrum.rotateAndDraw(2);
+            GenericDynamicArray<Integer> userNumbers = userTicket.getUserData();
+
+            for (PrizeCategory category : PrizeCategory.values()) {
+                if (category.isWinner(firstDrumNumbers, userNumbers, secondDrumNumbers)) {
+                    System.out.println("¡Felicidades! Has ganado en la categoría " + category.getCategoryName());
+                    System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
+                    System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
+                    System.out.println("Tus números: " + userNumbers);
+                    return;
+                }
+            }
+
+            numberAttemps++;
+
+            System.out.println("Has perdido en el sorteo número " + numberAttemps);
+        }
+    }
+      */
+
+
 }
 
 
