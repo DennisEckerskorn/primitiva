@@ -6,40 +6,24 @@ import java.util.Random;
 
 //jon
 public class LotteryDrum {
-    private int CANTIDAD_NUMS_BOMBO_GRANDE = 49;
-    private int CANTIDAD_NUMS_BOMBO_PEQUENO = 10;
     private int ultimoNum = 0;
     private int primerNum = 0;
     private Random random = new Random();
     private GenericDynamicArray <Integer>bombo;
 
-
-    private GenericDynamicArray <Integer>bomboGrande;
-    private GenericDynamicArray <Integer>bomboPequeno;
-
-    public LotteryDrum() {
-        bomboGrande = new GenericDynamicArray<>();
-        bomboPequeno = new GenericDynamicArray<>();
-        for (int i = 0; i < CANTIDAD_NUMS_BOMBO_GRANDE; i++) {
-            int num = i;
-            bomboGrande.add(num + 1);
-
-        }
-        for (int i = 0; i < CANTIDAD_NUMS_BOMBO_PEQUENO; i++) {
-            int num = i;
-            bomboPequeno.add(num);
-        }
-    }
-
     public LotteryDrum(int primerNum, int ultimoNum) {
-        this.ultimoNum = ultimoNum;
-        this.primerNum = primerNum;
-        bombo = new GenericDynamicArray<>();
-        int num;
-        for (int i = primerNum; i < ultimoNum; i++) {
-            num = i;
-            bombo.add(num);
+        if(primerNum < ultimoNum){
+            this.ultimoNum = ultimoNum;
+            this.primerNum = primerNum;
+            bombo = new GenericDynamicArray<>();
+            int num;
+            for (int i = primerNum; i < ultimoNum; i++) {
+                num = i;
+                bombo.add(num);
 
+            }
+        }else {
+            return;
         }
     }
 
