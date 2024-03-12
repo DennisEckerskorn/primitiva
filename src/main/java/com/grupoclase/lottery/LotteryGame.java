@@ -102,16 +102,16 @@ public class LotteryGame {
                 uniqueGame();
                 break;
             case 2:
-                //jugarHastaPremio();
+                jugarHastaPremio();
                 break;
             case 3:
-                //jugarHastaPremioSinReintegro();
+                jugarHastaPremioSinReintegro();
                 break;
             case 4:
-                //gameOf10000Draws();
+                gameOf10000Draws();
                 break;
             case 5:
-                //jugarHastaPremioEspecial();
+                jugarHastaPremioEspecial();
                 break;
             case 6:
                 ticketMenu();
@@ -207,31 +207,30 @@ public class LotteryGame {
         boolean premio = false;
         int numberAttemps = 0;
 
-        while (premio) {
+        while (!premio) {
             numberAttemps++;
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
             int[] ticket = userTicket.getNumbers();
-
-            System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
-            System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
-            System.out.println("Your numbers: " + userTicket);
 
             boolean anyPrizeWon = false;
 
             for (PrizeCategory category : PrizeCategory.values()) {
                 if (category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                     System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
-                    break;
+                    System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+                    System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                    System.out.println("Your numbers: " + userTicket);
+                    anyPrizeWon = true;
+                    premio = true;
                 }
             }
 
             if (!anyPrizeWon) {
                 System.out.println("Unfortunately, you haven't won any prizes in the attemp number" + numberAttemps);
-            } else {
-                bigDrum.resetBombo();
-                littleDrum.resetBombo();
             }
+            bigDrum.resetBombo();
+            littleDrum.resetBombo();
 
         }
     }
@@ -239,33 +238,34 @@ public class LotteryGame {
     public void jugarHastaPremioSinReintegro() {
         boolean premio = false;
         int numberAttemps = 0;
-        while (premio) {
+
+        while (!premio) {
             numberAttemps++;
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
             int[] ticket = userTicket.getNumbers();
 
-            System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
-            System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
-            System.out.println("Your numbers: " + userTicket);
 
             boolean anyPrizeWon = false;
 
             for (PrizeCategory category : PrizeCategory.values()) {
                 if (category != PrizeCategory.SPECIAL && category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                     System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
+                    System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+                    System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                    System.out.println("Your numbers: " + userTicket);
                     anyPrizeWon = true;
-                    break;
+                    premio = true;
                 }
             }
 
             if (!anyPrizeWon) {
                 System.out.println("Unfortunately, you haven't won any prizes in the attemp number" + numberAttemps);
-            } else {
-                bigDrum.resetBombo();
-                littleDrum.resetBombo();
             }
+
+            bigDrum.resetBombo();
+            littleDrum.resetBombo();
         }
     }
 
@@ -312,7 +312,7 @@ public class LotteryGame {
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
                 System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
                 System.out.println("Your numbers: " + userTicket);
-                break;
+                premio = true;
             }
         }
 
