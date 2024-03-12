@@ -2,6 +2,7 @@ package com.grupoclase.lottery;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * The UserTicket class represents a ticket in the Primitiva game, storing a combination of numbers.
@@ -12,96 +13,98 @@ public class UserTicket {
     private int complementary;
 
     /**
-     * Constructor for the UserTicket class.
-     * Initializes the array of numbers for the ticket.
+     * Constructor for the UserTicket class when prompting the user for 6 main numbers and a complementary number.
+     * The reimbursement number is generated randomly.
      */
-    public UserTicket() {
-        this.numbers = new int[6]; // 6 numbers
+    public UserTicket(int[] inputNumbers) {
+        if (inputNumbers.length == 6) {
+            this.numbers = inputNumbers;
+            this.complementary = inputComplementary();
+            this.reimbursement = new Random().nextInt(10); // Generate random reimbursement from 0 to 9
+        } else {
+            throw new IllegalArgumentException("Invalid number of input numbers. The ticket requires exactly 6 numbers.");
+        }
     }
 
     /**
-     * Generates a random combination of numbers for the ticket.
-     * The generated numbers are within the range of 1 to 49.
+     * Constructor for the UserTicket class when generating 6 main numbers, a random reimbursement, and a random complementary number.
      */
+    public UserTicket() {
+        this.numbers = generateRandomNumbers();
+        this.reimbursement = new Random().nextInt(10); // Generate random reimbursement from 0 to 9
+        this.complementary = generateComplementary();
+    }
+
+    /**
+     * Prompts the user to enter 6 main numbers.
+     *
+     * @return An array containing the 6 main numbers chosen by the user.
+     */
+    private int[] inputNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        int[] inputNumbers = new int[6];
+        for (int i = 0; i < 6; i++) {
+            System.out.println("Enter number " + (i + 1) + ": ");
+            inputNumbers[i] = scanner.nextInt();
+        }
+        return inputNumbers;
+    }
+
+    /**
+     * Prompts the user to enter the complementary number.
+     *
+     * @return The complementary number chosen by the user.
+     */
+    private int inputComplementary() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter complementary number (1-49): ");
+        return scanner.nextInt();
+    }
+    public int[] getNumbers() {
+        return numbers;
+    }
+    /**
+     * Generates a random combination of 6 main numbers.
+     *
+     * @return An array containing the 6 randomly generated main numbers.
+     */
+    private int[] generateRandomNumbers() {
+        Random random = new Random();
+        int[] randomNumbers = new int[6];
+        for (int i = 0; i < 6; i++) {
+            randomNumbers[i] = random.nextInt(49) + 1;
+        }
+        return randomNumbers;
+    }
+
+    /**
+     * Generates a random complementary number.
+     *
+     * @return The randomly generated complementary number.
+     */
+    private int generateComplementary() {
+        Random random = new Random();
+        return random.nextInt(49) + 1;
+    }
+
+    // Getters and setters for reimbursement and complementary numbers
+
+    @Override
+    public String toString() {
+        return "UserTicket{" +
+                "numbers=" + Arrays.toString(numbers) +
+                ", reimbursement=" + reimbursement +
+                ", complementary=" + complementary +
+                '}';
+    }
+
+
     public void generateNumbers() {
         Random random = new Random();
         for (int i = 0; i < 6; i++) {
             numbers[i] = random.nextInt(49) + 1;
         }
         generateComplementary();
-    }
-
-    /**
-     * Generates the complementary number for the ticket.
-     * The complementary number is selected from the remaining numbers after generating the first 6 numbers.
-     */
-    private void generateComplementary() {
-        Random random = new Random();
-        boolean found = false;
-        while (!found) {
-            int tempComplementary = random.nextInt(49) + 1;
-            found = true;
-            for (int number : numbers) {
-                if (tempComplementary == number) {
-                    found = false;
-                    break;
-                }
-            }
-            if (found) {
-                complementary = tempComplementary;
-            }
-        }
-    }
-
-    /**
-     * Gets the numbers of the ticket.
-     *
-     * @return An array containing the combination of numbers of the ticket.
-     */
-    public int[] getNumbers() {
-        return numbers;
-    }
-
-    /**
-     * Sets the numbers of the ticket based on the input array.
-     *
-     * @param inputNumbers An array containing the numbers to set for the ticket.
-     */
-    public boolean setNumbers(int[] inputNumbers) {
-        if (inputNumbers.length == 6) {
-            numbers = inputNumbers;
-            generateComplementary();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Sets the reimbursement number for the ticket.
-     *
-     * @param reimbursement The reimbursement number to set.
-     */
-    public void setReimbursement(int reimbursement) {
-        this.reimbursement = reimbursement;
-    }
-
-    /**
-     * Gets the reimbursement number for the ticket.
-     *
-     * @return The reimbursement number.
-     */
-    public int getReimbursement() {
-        return reimbursement;
-    }
-
-    /**
-     * Gets the complementary number for the ticket.
-     *
-     * @return The complementary number.
-     */
-    public int getComplementary() {
-        return complementary;
     }
 
     /**
@@ -114,12 +117,19 @@ public class UserTicket {
         reimbursement = 0;
     }
 
-    @Override
-    public String toString() {
-        return "\nUserTicket{" +
-                "numbers=" + Arrays.toString(numbers) +
-                ", reimbursement=" + reimbursement +
-                ", complementary=" + complementary +
-                '}';
+    /**
+     * Sets the numbers of the ticket based on the input array.
+     *
+
+     * @param inputNumbers An array containing the numbers to set for the ticket.
+     */
+    public boolean setNumbers(int[] inputNumbers) {
+        if (inputNumbers.length == 6) {
+            numbers = inputNumbers;
+            generateComplementary();
+            return true;
+        } else {
+            return false;
+        }
     }
 }

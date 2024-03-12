@@ -1,7 +1,5 @@
 package com.grupoclase.lottery;
 
-import com.grupoclase.lottery.UserTicket;
-import com.grupoclase.dynamicarray.GenericDynamicArray;
 import com.grupoclase.lib.ConsoleMenu;
 import com.grupoclase.lib.LibIO;
 
@@ -145,12 +143,11 @@ public class LotteryGame {
         }
 
         int[] userInputNumbers = new int[quantityNumbers];
+
         //Problema al validar la repeticion de los numeros de cada posicion del array.
         for (int i = 0; i < quantityNumbers; i++) {
             userInputNumbers[i++] = LibIO.requestInt("Introduce the number " + (i) + " of your Ticket:", 0, 49);
-
         }
-
         if (userTicket.setNumbers(userInputNumbers)) {
             System.out.println("You are playing with these numbers: " + userTicket);
             return userTicket;
@@ -204,85 +201,120 @@ public class LotteryGame {
         }
     }
 
-/*
+
     public void jugarHastaPremio() {
         boolean premio = false;
-        while (premio == false) {
-            int numberAttemps = 0;
+        int numberAttemps = 0;
+
+        while (premio) {
+            numberAttemps++;
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
+            int[] ticket = userTicket.getNumbers();
+
+            System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+            System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+            System.out.println("Your numbers: " + userTicket);
+
+            boolean anyPrizeWon = false;
 
             for (PrizeCategory category : PrizeCategory.values()) {
                 if (category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
-                    System.out.println("¡Felicidades! Has ganado en la categoría " + category.getCategoryName());
-                    System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
-                    System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
-                    System.out.println("Tus números: " + ticket);
-                    return;
+                    System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
+                    break;
                 }
             }
 
-            numberAttemps++;
+            if (!anyPrizeWon) {
+                System.out.println("Unfortunately, you haven't won any prizes in the attemp number" + numberAttemps);
+            } else {
+                bigDrum.resetBombo();
+                littleDrum.resetBombo();
+            }
 
-            System.out.println("Has perdido en el sorteo número " + numberAttemps);
-            //TODO añadir que cuando gane "premio" = true;
-            bigDrum.resetBombo();
-            littleDrum.resetBombo();
         }
     }
 
     public void jugarHastaPremioSinReintegro() {
         boolean premio = false;
-        while (premio == false) {
+        int numberAttemps = 0;
+        while (premio) {
+            numberAttemps++;
 
-            int numberAttemps = 0;
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
+            int[] ticket = userTicket.getNumbers();
 
+            System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+            System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+            System.out.println("Your numbers: " + userTicket);
+
+            boolean anyPrizeWon = false;
 
             for (PrizeCategory category : PrizeCategory.values()) {
                 if (category != PrizeCategory.SPECIAL && category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
-                    System.out.println("¡Felicidades! Has ganado en la categoría " + category.getCategoryName());
-                    System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
-                    System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
-                    System.out.println("Tus números: " + ticket);
-                    return;
+                    System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
+                    anyPrizeWon = true;
+                    break;
                 }
             }
-            numberAttemps++;
-            System.out.println("Has perdido en el sorteo número" + numberAttemps);
-            //todo añadir que cuando gane "premio" = true;
-            bigDrum.resetBombo();
-            littleDrum.resetBombo();
+
+            if (!anyPrizeWon) {
+                System.out.println("Unfortunately, you haven't won any prizes in the attemp number" + numberAttemps);
+            } else {
+                bigDrum.resetBombo();
+                littleDrum.resetBombo();
+            }
         }
     }
 
     public void gameOf10000Draws() {
         int[] prizeCounter = new int[PrizeCategory.values().length];
-        for (int i = 0; i < 10000; i++) {
 
-            bigDrum.resetBombo();
-            littleDrum.resetBombo();
+
+        for (int i = 0; i < 10000; i++) {
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
+            int[] ticket = userTicket.getNumbers();
 
             for (PrizeCategory category : PrizeCategory.values()) {
                 if (category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                     prizeCounter[category.ordinal()]++;
                 }
             }
+
+            bigDrum.resetBombo();
+            littleDrum.resetBombo();
         }
 
-        System.out.println("Resumen de premios: ");
+        System.out.println("Summary of awards: ");
         for (PrizeCategory category : PrizeCategory.values()) {
             System.out.println(category.getCategoryName() + ": " + prizeCounter[category.ordinal()]);
         }
     }
 
 
- */
+    private void jugarHastaPremioEspecial() {
+        boolean premio = false;
+        int numberAttemps = 0;
 
+        while (!premio) {
+            numberAttemps++;
+
+            int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
+            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(1);
+            int[] ticket = userTicket.getNumbers();
+
+            if (PrizeCategory.SPECIAL.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
+                System.out.println("¡Congratulations!, you have won the special prize ");
+                System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                System.out.println("Your numbers: " + userTicket);
+                break;
+            }
+        }
+
+        System.out.println("Number of draws until the special prize is won:  " + numberAttemps);
+    }
 }
-
-
