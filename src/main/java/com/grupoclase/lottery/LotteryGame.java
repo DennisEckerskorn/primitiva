@@ -213,10 +213,10 @@ public class LotteryGame {
      */
 
     public void playTillWinWithRefound() {
-        boolean premio = false;
+        boolean prize = false;
         int numberAttemps = 0;
 
-        while (!premio) {
+        while (!prize) {
             numberAttemps++;
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
@@ -231,7 +231,7 @@ public class LotteryGame {
                     System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
                     System.out.println("Your numbers: " + userTicket);
                     anyPrizeWon = true;
-                    premio = true;
+                    prize = true;
                 }
             }
 
@@ -254,10 +254,10 @@ public class LotteryGame {
      * The drums are reset after each attempt.
      */
     public void playTillWinWithoutRefound() {
-        boolean premio = false;
+        boolean prize = false;
         int numberAttemps = 0;
 
-        while (!premio) {
+        while (!prize) {
             numberAttemps++;
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
@@ -274,7 +274,7 @@ public class LotteryGame {
                     System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
                     System.out.println("Your numbers: " + userTicket);
                     anyPrizeWon = true;
-                    premio = true;
+                    prize = true;
                 }
             }
 
@@ -330,10 +330,10 @@ public class LotteryGame {
      * and the user's ticket, along with the number of draws made until obtaining the special prize.
      */
     private void playToWinSpecialPrize() {
-        boolean premio = false;
+        boolean prize = false;
         int numberAttemps = 0;
 
-        while (!premio) {
+        while (!prize) {
             numberAttemps++;
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
@@ -345,7 +345,7 @@ public class LotteryGame {
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
                 System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
                 System.out.println("Your numbers: " + userTicket);
-                premio = true;
+                prize = true;
             }
         }
 
