@@ -147,6 +147,7 @@ public class LotteryGame {
         int[] userInputNumbers = new int[quantityNumbers];
         for (int i = 0; i < quantityNumbers; i++) {
             int number = LibIO.requestInt("Introduce the number " + (i + 1) + " of your Ticket:", 0, 49);
+
             userInputNumbers[i] = number;
         }
         if(userTicket.setNumbers(userInputNumbers)) {
