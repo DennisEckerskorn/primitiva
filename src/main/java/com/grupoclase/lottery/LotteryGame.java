@@ -17,14 +17,14 @@ public class LotteryGame {
     private int[] ticket;
 
     public LotteryGame() {
-        bigDrum = new LotteryDrum(1,49);
-        littleDrum = new LotteryDrum(0,9);
+        bigDrum = new LotteryDrum(1, 49);
+        littleDrum = new LotteryDrum(0, 9);
         System.out.println(bigDrum); //todo: TESTING PURPOSE
         System.out.println(littleDrum); //TODO: TESTING PURPOSE
 
-        mainMenu = new ConsoleMenu("PRIMITIVA");
-        mainMenu.addOpcion("Jugar");
-        mainMenu.addOpcion("Salir");
+        mainMenu = new ConsoleMenu("LOTTERY");
+        mainMenu.addOpcion("Play Game");
+        mainMenu.addOpcion("Exit");
 
         subMenuTicket = new ConsoleMenu("TICKET");
         subMenuTicket.addOpcion("Introduce your Ticket Number...");
@@ -34,7 +34,8 @@ public class LotteryGame {
         subMenuGameMode.addOpcion("Unique Game...");
         subMenuGameMode.addOpcion("Play until Prize with Refund...");
         subMenuGameMode.addOpcion("Play until Prize without Refund...");
-
+        subMenuGameMode.addOpcion("Game of 10000 Draws...");
+        subMenuGameMode.addOpcion("Play until Special Prize...");
 
 
         int option;
@@ -58,6 +59,7 @@ public class LotteryGame {
             }
         } while (option != 2);
     }
+
     private void ticketMenu() {
         int option = subMenuTicket.mostrarMenuInt();
 
@@ -69,7 +71,7 @@ public class LotteryGame {
                 //Generar numeros aleatorios y que devuelva un array de enteros llamado "arrayDeEnteros"
                 break;
             default:
-                System.out.println("El número introducido está fuera de rango [ 1 - ?]");
+                System.out.println("El número introducido está fuera de rango [ 1 - 2]");
                 break;
         }
         //al "arrayDeEnteros" habrá que sumarle los números del reintegro, es decir crear un nuevo array con una capacidad superior al "arrayDeEnteros"
@@ -98,7 +100,7 @@ public class LotteryGame {
                 //jugarHastaPremioEspecial();
                 break;
             default:
-                System.out.println("El número introducido está fuera de rango [ 1 - ?]");
+                System.out.println("El número introducido está fuera de rango [ 1 - 5]");
                 break;
         }
     }
@@ -142,6 +144,11 @@ public class LotteryGame {
     }
 */
 
+    /**
+     * Generates an automatic lottery ticket for the user and displays the generated numbers.
+     *
+     * @return The UserTicket object representing the automatically generated ticket.
+     */
     public UserTicket obtainAutomaticTicket() {
         userTicket = new UserTicket();
         userTicket.generateNumbers();
@@ -167,11 +174,10 @@ public class LotteryGame {
                 anyPrizeWon = true;
             }
         }
-        if(!anyPrizeWon) {
+        if (!anyPrizeWon) {
             System.out.println("Mala Suerte, no has ganado ningún premio...");
         }
     }
-
 
 
     public void jugarHastaPremio() {
@@ -200,10 +206,6 @@ public class LotteryGame {
         }
     }
 
-
-
-
-
     public void jugarHastaPremioSinReintegro() {
         boolean premio = false;
         while (premio == false) {
@@ -229,10 +231,6 @@ public class LotteryGame {
             littleDrum.resetBombo();
         }
     }
-
-
-
-
 
     public void gameOf10000Draws() {
         int[] prizeCounter = new int[PrizeCategory.values().length];
