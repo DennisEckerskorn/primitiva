@@ -105,10 +105,10 @@ public class ConsoleMenu {
                 if (respuesta >= min && respuesta <= max) {
                     valido = true;
                 } else {
-                    System.out.println("Por favor, introduce un número dentro del rango (" + min + " - " + max + ").");
+                    System.out.println("Please introduce a number in range (" + min + " - " + max + ").");
                 }
             } else {
-                System.out.println("Por favor, introduce un número válido.");
+                System.out.println("Please introduce a valid number.");
                 lector.next(); // Limpiar el buffer de entrada
             }
         } while (!valido);
@@ -129,7 +129,7 @@ public class ConsoleMenu {
             sb.append(i + 1).append(". ").append(opciones[i].texto).append("\n"); //Ajustar con stringformat
         }
         sb.append("------------------\n");
-        sb.append("Elija una opción: \n");
+        sb.append("Select an option: \n");
         return sb.toString();
     }
 }
