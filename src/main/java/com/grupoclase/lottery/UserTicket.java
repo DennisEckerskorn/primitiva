@@ -31,6 +31,7 @@ public class UserTicket {
 
     /**
      * Gets the numbers of the ticket.
+     *
      * @return An array containing the combination of numbers of the ticket.
      */
     public int[] getNumbers() {
@@ -39,6 +40,7 @@ public class UserTicket {
 
     /**
      * Sets the numbers of the ticket based on the input array.
+     *
      * @param inputNumbers An array containing the numbers to set for the ticket.
      */
     public void setNumbers(int[] inputNumbers) {
@@ -46,6 +48,32 @@ public class UserTicket {
             numbers = inputNumbers;
         } else {
             System.out.println("Error: Invalid number of elements. The ticket requires 7 numbers.");
+        }
+    }
+
+    /**
+     * Resets the numbers of the ticket to zero.
+     */
+    public void resetTicket() {
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = 0;
+        }
+    }
+
+    /**
+     * Adds an array of numbers to the current ticket.
+     *
+     * @param numbersToAdd An array containing the numbers to be added to the ticket.
+     * @return {@code true} if the addition is successful, {@code false} otherwise.
+     */
+    public boolean addNumbersToArray(int[] numbersToAdd) {
+        if (numbersToAdd.length == numbers.length) {
+            for (int i = 0; i < numbers.length; i++) {
+                numbers[i] = numbersToAdd[i];
+            }
+            return true;
+        } else {
+            return false;
         }
     }
 }
