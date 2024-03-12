@@ -116,7 +116,14 @@ public class UserTicket {
             reimbursement = 0;
         }
 
-        /**
+    @Override
+    public String toString() {
+        return "UserTicket{" +
+                "numbers=" + Arrays.toString(numbers) +
+                ", reimbursement=" + reimbursement +
+                '}';
+    }
+/**
          * Validates if the ticket numbers are valid for the draw.
          *
          * @return True if the numbers are valid, otherwise false.
