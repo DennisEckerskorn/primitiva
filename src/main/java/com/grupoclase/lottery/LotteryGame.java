@@ -53,10 +53,10 @@ public class LotteryGame {
                     break;
                 case 2:
                     //Salir
-                    System.out.println("Hasta pronto");
+                    System.out.println("See you soon...");
                     break;
                 default:
-                    System.out.println("El número introducido está fuera de rango [1 - 2]");
+                    System.out.println("The introduced number is not in range [1 - 2]");
                     break;
             }
         } while (option != 2);
@@ -75,7 +75,7 @@ public class LotteryGame {
                 obtainAutomaticTicket();
                 break;
             default:
-                System.out.println("El número introducido está fuera de rango [ 1 - 2]");
+                System.out.println("The introduced number is not in range [ 1 - 2]");
                 break;
         }
         //al "arrayDeEnteros" habrá que sumarle los números del reintegro, es decir crear un nuevo array con una capacidad superior al "arrayDeEnteros"
@@ -104,7 +104,7 @@ public class LotteryGame {
                 //jugarHastaPremioEspecial();
                 break;
             default:
-                System.out.println("El número introducido está fuera de rango [ 1 - 5]");
+                System.out.println("The introduced number is not in range [ 1 - 5]");
                 break;
         }
     }
@@ -152,6 +152,8 @@ public class LotteryGame {
         return userTicket;
     }
 
+
+    //A partir de este punto surgen problemas.
     private void juegoUnico() {
         //Se gira el bombo y se extraen los números:
         int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
