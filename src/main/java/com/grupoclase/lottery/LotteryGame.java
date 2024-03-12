@@ -20,6 +20,7 @@ public class LotteryGame {
     public LotteryGame() {
         bigDrum = new LotteryDrum(1, 49);
         littleDrum = new LotteryDrum(0, 9);
+        userTicket = new UserTicket();
         System.out.println(bigDrum); //todo: TESTING PURPOSE
         System.out.println(littleDrum); //TODO: TESTING PURPOSE
 
@@ -97,7 +98,7 @@ public class LotteryGame {
                 jugarHastaPremioSinReintegro();
                 break;
             case 4:
-                //ciclo10kSorteos();
+                gameOf10000Draws();
                 break;
             case 5:
                 //jugarHastaPremioEspecial();
@@ -161,6 +162,7 @@ public class LotteryGame {
         //Se gira el bombo y se extraen los números:
         int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
         int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
+        int[] ticket = userTicket.getNumbers();
 
         System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
         System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
