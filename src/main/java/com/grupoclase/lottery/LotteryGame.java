@@ -145,17 +145,18 @@ public class LotteryGame {
         }
 
         int[] userInputNumbers = new int[quantityNumbers];
+        //Problema al validar la repeticion de los numeros de cada posicion del array.
         for (int i = 0; i < quantityNumbers; i++) {
-            int number = LibIO.requestInt("Introduce the number " + (i + 1) + " of your Ticket:", 0, 49);
-            userInputNumbers[i] = number;
-        }
-        if(userTicket.setNumbers(userInputNumbers)) {
-            System.out.println("You are playing with these numbers: " + userTicket);
-            return userTicket;
-        }else{
-            return null;
+            userInputNumbers[i++] = LibIO.requestInt("Introduce the number " + (i) + " of your Ticket:", 0, 49);
+
         }
 
+        if (userTicket.setNumbers(userInputNumbers)) {
+            System.out.println("You are playing with these numbers: " + userTicket);
+            return userTicket;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -181,7 +182,7 @@ public class LotteryGame {
      */
     private void uniqueGame() {
         //Se gira el bombo y se extraen los números:
-        int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(7); //Numeros + complementario
+        int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6); //Numeros + complementario
         int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(1); //Reintegro
         int[] ticket = userTicket.getNumbers();
 

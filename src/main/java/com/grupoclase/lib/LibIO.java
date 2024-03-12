@@ -146,6 +146,25 @@ public class LibIO {
         return result;
     }
 
+    public static int requestInt(String message, int min, int max, boolean[] usedNumbers) {
+        boolean valid;
+        int result;
+        do{
+            System.out.println(message);
+            result = Integer.parseInt(lector.nextLine());
+            valid = (result >= min && result <= max) && !usedNumbers[result];
+            if(!valid) {
+                if(usedNumbers[result]) {
+                    System.out.println("Error: The number has already been entered. Please enter a different number.");
+                } else {
+                    System.out.printf("Error => Minimum Value: %d, Maximum Value: %d\n", min, max);
+                }
+            }
+        }while (!valid);
+        usedNumbers[result] = true;
+        return result;
+    }
+
     /**
      * Method to request a Long showing a message for the user, validation between min value and max value.
      * @param message for user (String).
