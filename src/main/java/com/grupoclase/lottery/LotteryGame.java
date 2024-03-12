@@ -149,10 +149,13 @@ public class LotteryGame {
             int number = LibIO.requestInt("Introduce the number " + (i + 1) + " of your Ticket:", 0, 49);
             userInputNumbers[i] = number;
         }
+        if(userTicket.setNumbers(userInputNumbers)) {
+            System.out.println("You are playing with these numbers: " + userTicket);
+            return userTicket;
+        }else{
+            return null;
+        }
 
-        userTicket.setNumbers(userInputNumbers);
-        System.out.println("You are playing with these numbers: " + userTicket);
-        return userTicket;
     }
 
     /**

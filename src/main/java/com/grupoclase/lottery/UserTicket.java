@@ -43,11 +43,12 @@ public class UserTicket {
          *
          * @param inputNumbers An array containing the numbers to set for the ticket.
          */
-        public void setNumbers(int[] inputNumbers) {
+        public boolean setNumbers(int[] inputNumbers) {
             if (inputNumbers.length == 6) {
                 numbers = inputNumbers;
+                return true;
             } else {
-                System.out.println("Error: Invalid number of elements. The ticket requires 6 numbers.");
+                return false;
             }
         }
 
