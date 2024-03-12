@@ -16,7 +16,7 @@ public class UserTicket {
      * Initializes the array of numbers for the ticket.
      */
     public UserTicket() {
-        this.numbers = new int[6]; // 6 numbers
+        this.numbers = new int[6]; // 7 numbers
     }
 
     /**
