@@ -1,5 +1,6 @@
 package com.grupoclase.lottery;
 
+import com.grupoclase.lottery.UserTicket;
 import com.grupoclase.dynamicarray.GenericDynamicArray;
 import com.grupoclase.lib.ConsoleMenu;
 import com.grupoclase.lib.LibIO;
