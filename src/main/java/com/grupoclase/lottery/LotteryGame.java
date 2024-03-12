@@ -4,6 +4,8 @@ import com.grupoclase.dynamicarray.GenericDynamicArray;
 import com.grupoclase.lib.ConsoleMenu;
 import com.grupoclase.lib.LibIO;
 
+import java.util.Arrays;
+
 /*
 Classe que maneja la entrada/salida y los menus de la primitiva.
  */
@@ -160,8 +162,8 @@ public class LotteryGame {
         int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
         int[] ticket = userTicket.getNumbers();
 
-        System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
-        System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
+        System.out.println("Números ganadores del primer bombo:" + Arrays.toString(firstDrumNumbers));
+        System.out.println("Números ganadores del segundo bombo: " + Arrays.toString(secondDrumNumbers));
         System.out.println("Tus números: " + ticket);
 
         boolean anyPrizeWon = false;
