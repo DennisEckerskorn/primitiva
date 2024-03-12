@@ -206,6 +206,7 @@ public class LotteryGame {
     public void jugarHastaPremio() {
         boolean premio = false;
         int numberAttemps = 0;
+
         while (premio) {
             numberAttemps++;
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
@@ -292,5 +293,29 @@ public class LotteryGame {
         for (PrizeCategory category : PrizeCategory.values()) {
             System.out.println(category.getCategoryName() + ": " + prizeCounter[category.ordinal()]);
         }
+    }
+
+
+    private void jugarHastaPremioEspecial() {
+        boolean premio = false;
+        int numberAttemps = 0;
+
+        while (!premio) {
+            numberAttemps++;
+
+            int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
+            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(1);
+            int[] ticket = userTicket.getNumbers();
+
+            if (PrizeCategory.SPECIAL.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
+                System.out.println("¡Congratulations!, you have won the special prize ");
+                System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                System.out.println("Your numbers: " + userTicket);
+                break;
+            }
+        }
+
+        System.out.println("Number of draws until the special prize is won:  " + numberAttemps);
     }
 }
