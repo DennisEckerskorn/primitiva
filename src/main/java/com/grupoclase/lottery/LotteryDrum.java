@@ -12,6 +12,12 @@ public class LotteryDrum {
     private Random random = new Random();
     private GenericDynamicArray <Integer>bombo;
 
+    /**
+     * Constructor for the drum.
+     * @param primerNum indicates the number from which the numbers start generating.
+     * @param ultimoNum indicates the last generated number.
+     */
+
     public LotteryDrum(int primerNum, int ultimoNum) {
         if(primerNum < ultimoNum){
             this.ultimoNum = ultimoNum;
@@ -25,6 +31,9 @@ public class LotteryDrum {
         }
     }
 
+    /**
+     * This method regenerates the numbers inside the drum.
+     */
     public void resetBombo(){
         GenericDynamicArray array1 = new GenericDynamicArray();
         for (int i = 0; i < ultimoNum; i++) {
@@ -35,7 +44,11 @@ public class LotteryDrum {
         bombo = array1;
     }
 
-
+    /**
+     * Method to extract numbers from the drum.
+     * @param cantidadNums the quantity of numbers to extract from the drum
+     * @return an array of integers with the extracted numbers
+     */
     public int[] extraerCombinacionGanadora (int cantidadNums){
         int[] arrayGanadores = new int[cantidadNums];
 

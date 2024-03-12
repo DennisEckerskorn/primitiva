@@ -2,13 +2,9 @@
 1.2 En la misma clase, hay que pedir 6 números y generar un séptimo aleatorio (lo pone en el enunciado del ejercicio)
 2.En la clase PrizeCategory hay que adaptar el metodo "isWinner" para que trabaje con array de Enteros
 3.En la clase LotteryGame "gameOf10000Draws" adaptarlo a array de Numeros enteros y añadir los metodos del LotteryDrum.resetBombo
-4. agregar validacion requestINt del LiIO en la solicitud de datos al usuario (DENNIS)
-5. añadir constructor manual en la clase UserTicket que pida un array de 6 números y un entero el cual será el número complementario , el reintegro se elegirá automaticamente. [Laura]
-5.1 modificar el constructor actual sin datos para generar 6 números aleatorios, el reintegro y el número complementario también se generarán aleatoriamente. [Laura]
-
-
 
 2.[Realizado]
 3.[Realizado]
 
 
+4- agregar validacion requestINt del LiIO en la solicitud de datos al usuario (DENNIS)
