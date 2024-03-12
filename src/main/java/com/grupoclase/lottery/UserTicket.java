@@ -99,4 +99,37 @@ public class UserTicket {
     }
 
 
+    public void generateNumbers() {
+        Random random = new Random();
+        for (int i = 0; i < 6; i++) {
+            numbers[i] = random.nextInt(49) + 1;
+        }
+        generateComplementary();
+    }
+
+    /**
+     * Resets the numbers of the ticket to zero.
+     */
+    public void resetTicket() {
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = 0;
+        }
+        reimbursement = 0;
+    }
+
+    /**
+     * Sets the numbers of the ticket based on the input array.
+     *
+
+     * @param inputNumbers An array containing the numbers to set for the ticket.
+     */
+    public boolean setNumbers(int[] inputNumbers) {
+        if (inputNumbers.length == 6) {
+            numbers = inputNumbers;
+            generateComplementary();
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
