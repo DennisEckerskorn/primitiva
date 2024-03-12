@@ -3,4 +3,5 @@
 2.En la clase PrizeCategory hay que adaptar el metodo "isWinner" para que trabaje con array de Enteros
 3.En la clase LotteryGame "gameOf10000Draws" adaptarlo a array de Numeros enteros y añadir los metodos del LotteryDrum.resetBombo
 
+2.[Realizado]
 3.[Realizado]
