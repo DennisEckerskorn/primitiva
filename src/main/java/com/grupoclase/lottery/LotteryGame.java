@@ -17,8 +17,11 @@ public class LotteryGame {
     private UserTicket userTicket;
     private LotteryDrum bigDrum;
     private LotteryDrum littleDrum;
-    private int[] ticket;
 
+    /**
+     * Constructs a new instance of the LotteryGame class.
+     * Initializes the main components of the lottery game, including the drums, user ticket, and menus.
+     */
     public LotteryGame() {
         bigDrum = new LotteryDrum(1, 49);
         littleDrum = new LotteryDrum(0, 9);
@@ -33,6 +36,7 @@ public class LotteryGame {
         subMenuTicket = new ConsoleMenu("TICKET");
         subMenuTicket.addOpcion("Introduce your Ticket Number...");
         subMenuTicket.addOpcion("Generate Random Ticket Number...");
+        subMenuTicket.addOpcion("Return to Main Menu...");
 
         subMenuGameMode = new ConsoleMenu("GAME MODE");
         subMenuGameMode.addOpcion("Unique Game...");
@@ -40,10 +44,13 @@ public class LotteryGame {
         subMenuGameMode.addOpcion("Play until Prize without Refund...");
         subMenuGameMode.addOpcion("Game of 10000 Draws...");
         subMenuGameMode.addOpcion("Play until Special Prize...");
+        subMenuGameMode.addOpcion("Return to Ticket Menu...");
 
+        displayMainMenu();
+    }
 
+    private void displayMainMenu() {
         int option;
-        boolean numbersGenerated;
 
         do {
             option = mainMenu.mostrarMenuInt();
@@ -51,10 +58,8 @@ public class LotteryGame {
             switch (option) {
                 case 1:
                     ticketMenu();
-                    //Jugar
                     break;
                 case 2:
-                    //Salir
                     System.out.println("See you soon...");
                     break;
                 default:
@@ -73,11 +78,15 @@ public class LotteryGame {
                 obtainUserNumbersManual(6);
                 break;
             case 2:
-                //Generate random ticket.
+                //Generate random ticket:
                 obtainAutomaticTicket();
                 break;
+            case 3:
+                //Return to main menu:
+                displayMainMenu();
+                break;
             default:
-                System.out.println("The introduced number is not in range [ 1 - 2]");
+                System.out.println("The introduced number is not in range [ 1 - 3]");
                 break;
         }
         //al "arrayDeEnteros" habrá que sumarle los números del reintegro, es decir crear un nuevo array con una capacidad superior al "arrayDeEnteros"
@@ -91,19 +100,22 @@ public class LotteryGame {
 
         switch (option) {
             case 1:
-                juegoUnico();
+                uniqueGame();
                 break;
             case 2:
-                jugarHastaPremio();
+                //jugarHastaPremio();
                 break;
             case 3:
-                jugarHastaPremioSinReintegro();
+                //jugarHastaPremioSinReintegro();
                 break;
             case 4:
-                gameOf10000Draws();
+                //gameOf10000Draws();
                 break;
             case 5:
                 //jugarHastaPremioEspecial();
+                break;
+            case 6:
+                ticketMenu();
                 break;
             default:
                 System.out.println("The introduced number is not in range [ 1 - 5]");
@@ -155,32 +167,39 @@ public class LotteryGame {
     }
 
 
-    //A partir de este punto surgen problemas.
-    private void juegoUnico() {
+    /**
+     * Performs a single round of lottery game, where the winning numbers are drawn from two drums and compared with the user's ticket
+     * to determine if any prize has been won.
+     * Draws the winning numbers from the first drum and the second drum, as well as the numbers from the user's ticket.
+     * Compares the numbers on the user's ticket with the winning numbers for each prize category.
+     * If the user has won in any category, a congratulations message is displayed.
+     * Otherwise, a message indicating no prize has been won is displayed.
+     */
+    private void uniqueGame() {
         //Se gira el bombo y se extraen los números:
         int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
         int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
         int[] ticket = userTicket.getNumbers();
 
-        System.out.println("Números ganadores del primer bombo:" + Arrays.toString(firstDrumNumbers));
-        System.out.println("Números ganadores del segundo bombo: " + Arrays.toString(secondDrumNumbers));
-        System.out.println("Tus números: " + ticket);
+        System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+        System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+        System.out.println("Your numbers: " + ticket);
 
         boolean anyPrizeWon = false;
 
         for (int i = 0; i < PrizeCategory.values().length; i++) {
             PrizeCategory category = PrizeCategory.values()[i];
             if (category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
-                System.out.println("¡Felicidades! Has ganado en la categoria " + category.getCategoryName());
+                System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
                 anyPrizeWon = true;
             }
         }
         if (!anyPrizeWon) {
-            System.out.println("Mala Suerte, no has ganado ningún premio...");
+            System.out.println("Unfortunately, you haven't won any prizes this time...");
         }
     }
 
-
+/*
     public void jugarHastaPremio() {
         boolean premio = false;
         while (premio == false) {
@@ -256,6 +275,8 @@ public class LotteryGame {
         }
     }
 
+
+ */
 
 }
 
