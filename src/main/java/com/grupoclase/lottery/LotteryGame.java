@@ -181,8 +181,8 @@ public class LotteryGame {
      */
     private void uniqueGame() {
         //Se gira el bombo y se extraen los números:
-        int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
-        int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
+        int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(7); //Numeros + complementario
+        int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(1); //Reintegro
         int[] ticket = userTicket.getNumbers();
 
         System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
