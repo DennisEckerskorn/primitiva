@@ -187,7 +187,7 @@ public class LotteryGame {
 
         System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
         System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
-        System.out.println("Your numbers: " + ticket);
+        System.out.println("Your numbers: " + userTicket);
 
         boolean anyPrizeWon = false;
 
