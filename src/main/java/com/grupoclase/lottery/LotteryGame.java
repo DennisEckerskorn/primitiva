@@ -129,20 +129,14 @@ public class LotteryGame {
             System.out.println("The array has been reset...");
         }
 
-        int[] numbers = new int[quantityNumbers];
+        int[] userInputNumbers = new int[quantityNumbers];
         for (int i = 0; i < quantityNumbers; i++) {
             int number = LibIO.requestInt("Introduce the number " + (i + 1) + " of your Ticket:", 0, 49);
-            numbers[i] = number;
+            userInputNumbers[i] = number;
         }
 
-        boolean numbersAdded = userTicket.addNumbersToArray(numbers);
-
-        if (numbersAdded) {
-            System.out.println("You are playing with these numbers: " + userTicket);
-            return userTicket;
-        } else {
-            System.out.println("Error, the numbers are not valid...");
-        }
+        userTicket.setNumbers(userInputNumbers);
+        System.out.println("You are playing with these numbers: " + userTicket);
         return userTicket;
     }
 

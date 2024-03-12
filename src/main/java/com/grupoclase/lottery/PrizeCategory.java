@@ -57,12 +57,14 @@ public enum PrizeCategory {
      * @return {@code true} if the user is a winner in the prize category, {@code false} otherwise.
      */
     public boolean isWinner(int[] drawnNumbers, int[] userNumbers, int[] specialNumbers) {
+        if (userNumbers == null) {
+            return false;
+        }
         int matchingNumbers = 0;
         int matchingSpecialNumbers = 0;
 
         for (int i = 0; i < userNumbers.length; i++) {
             int userNumber = userNumbers[i];
-
 
             for (int j = 0; j < drawnNumbers.length; j++) {
                 Integer drawnNumber = drawnNumbers[j];
@@ -73,14 +75,16 @@ public enum PrizeCategory {
             }
         }
 
-        for (int i = 0; i < specialNumbers.length; i++) {
-            int specialNumber = specialNumbers[i];
+        if (specialNumbers != null) {
+            for (int i = 0; i < specialNumbers.length; i++) {
+                int specialNumber = specialNumbers[i];
 
-            for (int j = 0; j < userNumbers.length; j++) {
-                int userNumber = userNumbers[j];
-                if (userNumber == specialNumber) {
-                    matchingSpecialNumbers++;
-                    break;
+                for (int j = 0; j < userNumbers.length; j++) {
+                    int userNumber = userNumbers[j];
+                    if (userNumber == specialNumber) {
+                        matchingSpecialNumbers++;
+                        break;
+                    }
                 }
             }
         }
