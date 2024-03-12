@@ -17,11 +17,8 @@ public class LotteryDrum {
             this.ultimoNum = ultimoNum;
             this.primerNum = primerNum;
             bombo = new GenericDynamicArray<>();
-            int num;
-            for (int i = primerNum; i < ultimoNum; i++) {
-                num = i;
-                bombo.add(num);
-
+            for (int i = primerNum; i <= ultimoNum; i++) {
+                bombo.add(i);
             }
         }else {
             return;
@@ -30,7 +27,6 @@ public class LotteryDrum {
 
     public void resetBombo(){
         GenericDynamicArray array1 = new GenericDynamicArray();
-        GenericDynamicArray array2 = new GenericDynamicArray();
         for (int i = 0; i < ultimoNum; i++) {
             int num = i;
             array1.add(num+1);
@@ -93,7 +89,7 @@ public class LotteryDrum {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < bombo.size(); i++) {
-            sb.append(i).append(" ");
+            sb.append(bombo.get(i)).append(" ");
         }
         return sb.toString();
     }
