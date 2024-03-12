@@ -1,0 +1,17 @@
+Index: src/main/java/com/grupoclase/lottery/instrucciones.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>1.En la clase UserTicket \"setNumbers\" hay que decidir si se le pasa un array de números o que con ese método se le pregunte al usuario los números directamente\r\n1.2 En la misma clase, hay que pedir 6 números y generar un séptimo aleatorio (lo pone en el enunciado del ejercicio)\r\n2.En la clase PrizeCategory hay que adaptar el metodo \"isWinner\" para que trabaje con array de Enteros\r\n3.En la clase LotteryGame \"gameOf10000Draws\" adaptarlo a array de Numeros enteros y añadir los metodos del LotteryDrum.resetBombo\r\n\r\n2.[Realizado]\r\n3.[Realizado]\r\n\r\n\r\n4- agregar validacion requestINt del LiIO en la solicitud de datos al usuario (DENNIS)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/grupoclase/lottery/instrucciones.txt b/src/main/java/com/grupoclase/lottery/instrucciones.txt
+--- a/src/main/java/com/grupoclase/lottery/instrucciones.txt	(revision 6531924b2442f2b9bb5c415c4829af8c8e355b5c)
++++ b/src/main/java/com/grupoclase/lottery/instrucciones.txt	(date 1710277259035)
+@@ -7,4 +7,4 @@
+ 3.[Realizado]
+ 
+ 
+-4- agregar validacion requestINt del LiIO en la solicitud de datos al usuario (DENNIS)
+\ No newline at end of file
++4- agregar validacion requestINt del LiIO en la solicitud de datos al usuario (DENNIS)

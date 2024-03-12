@@ -60,7 +60,9 @@ public class UserTicket {
         System.out.println("Enter complementary number (1-49): ");
         return scanner.nextInt();
     }
-
+    public int[] getNumbers() {
+        return numbers;
+    }
     /**
      * Generates a random combination of 6 main numbers.
      *
@@ -95,4 +97,6 @@ public class UserTicket {
                 ", complementary=" + complementary +
                 '}';
     }
+
+
 }
