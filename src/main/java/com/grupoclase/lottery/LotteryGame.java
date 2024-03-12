@@ -102,16 +102,16 @@ public class LotteryGame {
                 uniqueGame();
                 break;
             case 2:
-                jugarHastaPremio();
+                playTillWinWithRefound();
                 break;
             case 3:
-                jugarHastaPremioSinReintegro();
+                playTillWinWithoutRefound();
                 break;
             case 4:
                 gameOf10000Draws();
                 break;
             case 5:
-                jugarHastaPremioEspecial();
+                playToWinSpecialPrize();
                 break;
             case 6:
                 ticketMenu();
@@ -203,7 +203,17 @@ public class LotteryGame {
     }
 
 
-    public void jugarHastaPremio() {
+    /**
+     * Plays the lottery until winning a prize including the refund.
+     * During each attempt, the winning numbers are extracted from the two drums and compared
+     * with the user's ticket numbers to determine if any prize has been won including the refund.
+     * Upon winning a prize, a congratulatory message is displayed along with the winning numbers
+     * and the user's ticket. The method stops its execution after winning a prize.
+     * If no prize is won including the refund, a message indicating that no prizes have been won is displayed.
+     * The drums are reset after each attempt.
+     */
+
+    public void playTillWinWithRefound() {
         boolean premio = false;
         int numberAttemps = 0;
 
@@ -235,7 +245,16 @@ public class LotteryGame {
         }
     }
 
-    public void jugarHastaPremioSinReintegro() {
+    /**
+     * Plays the lottery until winning a prize excluding the refund.
+     * During each attempt, the winning numbers are extracted from the two drums and compared
+     * with the user's ticket numbers to determine if any prize has been won excluding the refund.
+     * Upon winning a prize, a congratulatory message is displayed along with the winning numbers
+     * and the user's ticket. The method stops its execution after winning a prize.
+     * If no prize is won excluding the refund, a message indicating that no prizes have been won is displayed.
+     * The drums are reset after each attempt.
+     */
+    public void playTillWinWithoutRefound() {
         boolean premio = false;
         int numberAttemps = 0;
 
@@ -269,6 +288,14 @@ public class LotteryGame {
         }
     }
 
+    /**
+     * Performs 10000 lottery draws.
+     * During each draw, winning numbers are extracted from the two drums and compared
+     * with the numbers on the user's ticket to determine if any prizes have been won.
+     * After each draw, the drums are reset for the next draw.
+     * Upon completion of the 10000 draws, a summary of the prizes won in each category is displayed.
+     */
+
     public void gameOf10000Draws() {
         int[] prizeCounter = new int[PrizeCategory.values().length];
 
@@ -296,7 +323,14 @@ public class LotteryGame {
     }
 
 
-    private void jugarHastaPremioEspecial() {
+    /**
+     * Performs draws until winning a prize in the special category.
+     * After each draw, the winning numbers are compared with the user's ticket numbers
+     * to determine if a win has been achieved.
+     * Once the prize is obtained, a congratulatory message is displayed with the winning numbers
+     * and the user's ticket, along with the number of draws made until obtaining the special prize.
+     */
+    private void playToWinSpecialPrize() {
         boolean premio = false;
         int numberAttemps = 0;
 
