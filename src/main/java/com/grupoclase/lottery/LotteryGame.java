@@ -214,7 +214,7 @@ public class LotteryGame {
 
 
             for (PrizeCategory category : PrizeCategory.values()) {
-                if (category != PrizeCategory.ESPECIAL && category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
+                if (category != PrizeCategory.SPECIAL && category.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                     System.out.println("¡Felicidades! Has ganado en la categoría " + category.getCategoryName());
                     System.out.println("Números ganadores del primer bombo:" + firstDrumNumbers);
                     System.out.println("Números ganadores del segundo bombo: " + secondDrumNumbers);
