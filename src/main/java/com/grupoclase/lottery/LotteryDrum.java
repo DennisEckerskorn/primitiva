@@ -2,6 +2,7 @@ package com.grupoclase.lottery;
 
 import com.grupoclase.dynamicarray.GenericDynamicArray;
 
+import java.util.Objects;
 import java.util.Random;
 
 //jon
@@ -50,4 +51,50 @@ public class LotteryDrum {
         return arrayGanadores;
     }
 
+    public int getUltimoNum() {
+        return ultimoNum;
+    }
+
+    public int getPrimerNum() {
+        return primerNum;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public GenericDynamicArray<Integer> getBombo() {
+        return bombo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LotteryDrum that = (LotteryDrum) o;
+
+        if (ultimoNum != that.ultimoNum) return false;
+        if (primerNum != that.primerNum) return false;
+        if (!Objects.equals(random, that.random)) return false;
+        return Objects.equals(bombo, that.bombo);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ultimoNum;
+        result = 31 * result + primerNum;
+        result = 31 * result + (random != null ? random.hashCode() : 0);
+        result = 31 * result + (bombo != null ? bombo.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < bombo.size(); i++) {
+            sb.append(i).append(" ");
+        }
+        return sb.toString();
+    }
 }

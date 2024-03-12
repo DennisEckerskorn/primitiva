@@ -41,12 +41,12 @@ public enum PrizeCategory {
         int matchingNumbers = 0;
         int matchingSpecialNumbers = 0;
 
-        for (int i = 0; i < userNumbers.size(); i++) {
-            int userNumber = userNumbers.get(i);
+        for (int i = 0; i < userNumbers.length; i++) {
+            int userNumber = userNumbers[i];
 
 
-            for (int j = 0; j < drawnNumbers.size(); j++) {
-                Integer drawnNumber = drawnNumbers.get(j);
+            for (int j = 0; j < drawnNumbers.length; j++) {
+                Integer drawnNumber = drawnNumbers[j];
                 if (drawnNumber != null && userNumber == drawnNumber.intValue()) {
                     matchingNumbers++;
                     break;
@@ -54,11 +54,11 @@ public enum PrizeCategory {
             }
         }
 
-        for (int i = 0; i < specialNumbers.size(); i++) {
-            int specialNumber = specialNumbers.get(i);
+        for (int i = 0; i < specialNumbers.length; i++) {
+            int specialNumber = specialNumbers[i];
 
-            for (int j = 0; j < userNumbers.size(); j++) {
-                int userNumber = userNumbers.get(j);
+            for (int j = 0; j < userNumbers.length; j++) {
+                int userNumber = userNumbers[j];
                 if (userNumber == specialNumber) {
                     matchingSpecialNumbers++;
                     break;

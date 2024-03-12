@@ -18,7 +18,7 @@ public class LotteryGame {
 
     public LotteryGame() {
         bigDrum = new LotteryDrum(1,49);
-        bigDrum = new LotteryDrum(0,9);
+        littleDrum = new LotteryDrum(0,9);
         System.out.println(bigDrum); //todo: TESTING PURPOSE
         System.out.println(littleDrum); //TODO: TESTING PURPOSE
 
@@ -27,12 +27,13 @@ public class LotteryGame {
         mainMenu.addOpcion("Salir");
 
         subMenuTicket = new ConsoleMenu("TICKET");
-        subMenuTicket.addOpcion("INTRODUCIR MANUALMENTE");
-        subMenuTicket.addOpcion("GENERAR TICKET");
+        subMenuTicket.addOpcion("Introduce your Ticket Number...");
+        subMenuTicket.addOpcion("Generate Random Ticket Number...");
 
-        subMenuGameMode = new ConsoleMenu("MODO DE JUEGO");
-        subMenuGameMode.addOpcion("MODO 1");
-        subMenuGameMode.addOpcion("MODO 2");
+        subMenuGameMode = new ConsoleMenu("GAME MODE");
+        subMenuGameMode.addOpcion("Unique Game...");
+        subMenuGameMode.addOpcion("Play until Prize with Refund...");
+        subMenuGameMode.addOpcion("Play until Prize without Refund...");
 
 
 
@@ -91,10 +92,10 @@ public class LotteryGame {
                 jugarHastaPremioSinReintegro();
                 break;
             case 4:
-                ciclo10kSorteos();
+                //ciclo10kSorteos();
                 break;
             case 5:
-                jugarHastaPremioEspecial();
+                //jugarHastaPremioEspecial();
                 break;
             default:
                 System.out.println("El número introducido está fuera de rango [ 1 - ?]");
