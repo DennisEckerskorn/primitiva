@@ -2,6 +2,7 @@ package com.grupoclase.lottery;
 
 import com.grupoclase.dynamicarray.GenericDynamicArray;
 import com.grupoclase.lib.ConsoleMenu;
+import com.grupoclase.lib.LibIO;
 
 /*
 Classe que maneja la entrada/salida y los menus de la primitiva.
@@ -65,10 +66,12 @@ public class LotteryGame {
 
         switch (option) {
             case 1:
-                //metodo que pregunte al usuario los números de uno en uno y devuelva un array de enteros llamado "arrayDeEnteros"
+                //Obtain numbers manual:
+                obtainUserNumbersManual(6);
                 break;
             case 2:
-                //Generar numeros aleatorios y que devuelva un array de enteros llamado "arrayDeEnteros"
+                //Generate random ticket.
+                obtainAutomaticTicket();
                 break;
             default:
                 System.out.println("El número introducido está fuera de rango [ 1 - 2]");
@@ -109,40 +112,38 @@ public class LotteryGame {
     //Solicitar datos:
 
     /**
-     * Method which first checks if array is null or size equal to 0, otherwise it resets the array to 0 values.
-     * This way the user can always introduce new numbers in case he plays several times.
-     * Next step is asking the user for the 6 numbers, addNumbersToArray is used to convert the string into int and add them to an array.
-     * if numbers have been added correctly it prints them to confirm, otherwise it prints ERROR.
+     * Method which first checks if the array is null or size equal to 0; otherwise, it resets the array to 0 values.
+     * This way, the user can always introduce new numbers in case they play several times.
+     * The next step is asking the user for the 6 numbers. The additional 7th number is added randomly.
+     * If the numbers have been added correctly, it prints them to confirm; otherwise, it prints ERROR.
      *
-     * @return ticketManual with numbers, also the 7 number is added randomly (refund).
+     * @return ticketManual with numbers, including the 7th number added randomly (refund).
      */
-
-   /* public UserTicket obtainUserNumbersManual(int quantityNumbers) {
-        if (userTicket == null || userTicket.getUserData().size() == 0) {
-            userTicket = new UserTicket("DennisManual");
+    public UserTicket obtainUserNumbersManual(int quantityNumbers) {
+        if (userTicket == null || userTicket.getNumbers().length == 0) {
+            userTicket = new UserTicket();
         } else {
             userTicket.resetTicket();
             //TODO: Remove after testing
-            System.out.println("El array ha sido vaciado...");
+            System.out.println("The array has been reset...");
         }
 
-        GenericDynamicArray<Integer> numbers = new GenericDynamicArray<>(6);
-        for(int i = 0; i < quantityNumbers; i++) {
-            int number = LibIO.requestInt("Introduce el número " + (i +1) + " de tu boleto:", 0, 49);
-            numbers.add(number);
+        int[] numbers = new int[quantityNumbers];
+        for (int i = 0; i < quantityNumbers; i++) {
+            int number = LibIO.requestInt("Introduce the number " + (i + 1) + " of your Ticket:", 0, 49);
+            numbers[i] = number;
         }
 
         boolean numbersAdded = userTicket.addNumbersToArray(numbers);
 
         if (numbersAdded) {
-            System.out.println("Juegas con estos números: " + userTicket);
+            System.out.println("You are playing with these numbers: " + userTicket);
             return userTicket;
         } else {
-            System.out.println("Error, los números no son válidos");
+            System.out.println("Error, the numbers are not valid...");
         }
         return userTicket;
     }
-*/
 
     /**
      * Generates an automatic lottery ticket for the user and displays the generated numbers.
