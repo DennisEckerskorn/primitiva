@@ -163,7 +163,7 @@ public class LibIO {
         do {
             System.out.println(message);
             if (lector.hasNextInt()) {
-                result = Integer.parseInt(lector.nextLine());
+                result = lector.nextInt();
                 if (result >= min && result <= max) {
                     valid = true;
                 } else {
@@ -174,6 +174,7 @@ public class LibIO {
                 lector.next(); // Limpiar el buffer de entrada
             }
         } while (!valid);
+        lector.nextLine();
         return result;
     }
 
