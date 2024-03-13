@@ -83,11 +83,36 @@ public class UserTicket {
      * @return The randomly generated complementary number.
      */
     private int generateComplementary() {
+        boolean[] availableNumbers = new boolean[49]; // Array para almacenar los números disponibles
+        for (int number : numbers) {
+            availableNumbers[number - 1] = true; // Marca como no disponible los números ya elegidos
+        }
         Random random = new Random();
-        return random.nextInt(49) + 1;
+        int complementary;
+        do {
+            complementary = random.nextInt(49) + 1;
+        } while (availableNumbers[complementary - 1]); // Repite si el número generado ya fue elegido
+        return complementary;
     }
 
+
     // Getters and setters for reimbursement and complementary numbers
+
+    public int getReimbursement() {
+        return reimbursement;
+    }
+
+    public void setReimbursement(int reimbursement) {
+        this.reimbursement = reimbursement;
+    }
+
+    public int getComplementary() {
+        return complementary;
+    }
+
+    public void setComplementary(int complementary) {
+        this.complementary = complementary;
+    }
 
     @Override
     public String toString() {
