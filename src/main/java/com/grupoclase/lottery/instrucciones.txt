@@ -8,7 +8,13 @@
 
 
 4- agregar validacion requestINt del LiIO en la solicitud de datos al usuario (DENNIS)
-5 JON:
+5 JON:Parece que el error se produce en el método playToWinSpecialPrize() cuando se intenta extraer un número de la lista littleDrum, ya que se intenta extraer solo 1 número (cantidadNums es igual a 1) pero la lista bombo tiene un tamaño de 0.
+
+      Para solucionar este problema, necesitamos asegurarnos de que la lista bombo se inicialice correctamente con números antes de intentar extraer un número aleatorio de ella.
+
+      Podemos hacer esto verificando que la lista bombo no esté vacía antes de intentar extraer un número aleatorio. En caso de que esté vacía, podríamos mostrar un mensaje de error o tomar alguna otra acción adecuada, como regenerar la lista con números válidos.
+
+      Aquí tienes una posible solución para el método playToWinSpecialPrize():
 ///te dejo una posible solucion
     /*private void playToWinSpecialPrize() {
     boolean prize = false;
