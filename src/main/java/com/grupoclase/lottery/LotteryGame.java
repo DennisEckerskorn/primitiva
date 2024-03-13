@@ -151,7 +151,7 @@ public class LotteryGame {
             userInputNumbers[i] = LibIO.requestInt("Introduce the number " + (i+1) + " of your Ticket:", 0, 49);
             if(i > 0) {
                 while(validateRepeatedNumber(userInputNumbers, i, userInputNumbers[i])) {
-                    userInputNumbers[i] = LibIO.requestInt("Introduce the number " + (i+1) + " of your Ticket:", 0, 49);
+                    userInputNumbers[i] = LibIO.requestInt("The number already exists, please introduce the number again", 0, 49);
 
                 }
             }
