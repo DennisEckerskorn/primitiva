@@ -145,8 +145,16 @@ public class LotteryGame {
         int[] userInputNumbers = new int[quantityNumbers];
 
         //Problema al validar la repeticion de los numeros de cada posicion del array.
+
+
         for (int i = 0; i < quantityNumbers; i++) {
-            userInputNumbers[i++] = LibIO.requestInt("Introduce the number " + (i) + " of your Ticket:", 0, 49);
+            userInputNumbers[i] = LibIO.requestInt("Introduce the number " + (i+1) + " of your Ticket:", 0, 49);
+            if(i > 0) {
+                while(validateRepeatedNumber(userInputNumbers, i, userInputNumbers[i])) {
+                    userInputNumbers[i] = LibIO.requestInt("Introduce the number " + (i+1) + " of your Ticket:", 0, 49);
+
+                }
+            }
         }
         if (userTicket.setNumbers(userInputNumbers)) {
             System.out.println("You are playing with these numbers: " + userTicket);
@@ -154,6 +162,15 @@ public class LotteryGame {
         } else {
             return null;
         }
+    }
+
+    private boolean validateRepeatedNumber(int[] numbers, int position, int number) {
+        for (int i = 0; i < position; i++) {
+            if (numbers[i] == number) {
+                return true; // Return true if the number is repeated
+            }
+        }
+        return false; // Return false if the number is not repeated
     }
 
     /**
