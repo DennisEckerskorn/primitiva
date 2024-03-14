@@ -65,25 +65,18 @@ public enum PrizeCategory {
 
         for (int i = 0; i < userNumbers.length; i++) {
             int userNumber = userNumbers[i];
+            int drawnNumber = drawnNumbers[i];
 
-            for (int j = 0; j < drawnNumbers.length; j++) {
-                Integer drawnNumber = drawnNumbers[j];
-                if (drawnNumber != null && userNumber == drawnNumber.intValue()) {
-                    matchingNumbers++;
-                    break;
-                }
+            if (userNumber == drawnNumber) {
+                matchingNumbers++;
             }
         }
 
         if (specialNumbers != null) {
-            for (int i = 0; i < specialNumbers.length; i++) {
-                int specialNumber = specialNumbers[i];
-
-                for (int j = 0; j < userNumbers.length; j++) {
-                    int userNumber = userNumbers[j];
+            for (int specialNumber : specialNumbers) {
+                for (int userNumber : userNumbers) {
                     if (userNumber == specialNumber) {
                         matchingSpecialNumbers++;
-                        break;
                     }
                 }
             }

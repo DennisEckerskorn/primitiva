@@ -354,7 +354,7 @@ public class LotteryGame {
             numberAttemps++;
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
-            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(1);
+            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
             int[] ticket = userTicket.getNumbers();
 
             if (PrizeCategory.SPECIAL.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
