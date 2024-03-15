@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="wip bombo">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_23_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_23__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_32_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_32__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_34_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_02_2024_17_34__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Bombo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryDrum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/JuegoPrimitiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/UserTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/TipoJuego.java" beforeDir="false" />
-=======
     <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="añadida validación extra al menu">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2024_19_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2024_19_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_20_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_20_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_22_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_22_27__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Bombo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/resources/Bombo.java" afterDir="false" />
->>>>>>> 742bf1cc5666660283e1da143fee2fce92f50ad6
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +66,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Gradle.primitiva [:Main.main()].executor&quot;: &quot;Run&quot;,
@@ -89,21 +77,8 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/DennisE/IdeaProjects/primitiva&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase/Main.java&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
-=======
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.primitiva [:Main.main()].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DennisE/IdeaProjects/primitiva",
-    "onboarding.tips.debug.path": "C:/Users/Dennis/IdeaProjects/primitiva/src/main/java/com/grupoclase/Main.java",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
->>>>>>> 742bf1cc5666660283e1da143fee2fce92f50ad6
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Dennis\IdeaProjects\primitiva\src\main\java\com\grupoclase\dynamicarray" />

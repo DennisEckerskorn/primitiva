@@ -349,6 +349,7 @@ public class LotteryGame {
     private void playToWinSpecialPrize() {
         boolean prize = false;
         int numberAttemps = 0;
+        long intento=0;
 
         while (!prize) {
             numberAttemps++;
@@ -356,7 +357,13 @@ public class LotteryGame {
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(1);
             int[] ticket = userTicket.getNumbers();
-
+            intento++;
+            if(intento % 1000000 == 0){
+                System.out.println("intento"+intento);
+                System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
+                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                System.out.println("Your numbers: " + userTicket);
+            }
             if (PrizeCategory.SPECIAL.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
                 System.out.println("¡Congratulations!, you have won the special prize ");
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
@@ -364,6 +371,8 @@ public class LotteryGame {
                 System.out.println("Your numbers: " + userTicket);
                 prize = true;
             }
+            bigDrum.resetBombo();
+            littleDrum.resetBombo();
         }
 
         System.out.println("Number of draws until the special prize is won:  " + numberAttemps);
