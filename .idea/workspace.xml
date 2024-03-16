@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="añadida validación extra al menu">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2024_19_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_03_2024_19_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2024_22_43__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_20_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_20_29__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_22_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_03_2024_22_27__Changes_.xml" afterDir="false" />
+    <list default="true" id="c9e9599f-06d6-46b3-ba64-7c4fd95b7ee7" name="Changes" comment="error elimination">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grupoclase/lottery/LotteryGame.java" afterDir="false" />
     </list>
@@ -113,7 +108,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-20.0.2-azul-20.0.2-8336523bb0d9-ce1e98ff" />
+        <option value="jdk-20.0.2-azul-20.0.2-4caba194b151-895bf479" />
       </set>
     </attachedChunks>
   </component>
@@ -177,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709575064672</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="error elimination">
+      <option name="closed" value="true" />
+      <created>1710600417561</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710600417561</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +200,7 @@
     <MESSAGE value="optimizado el metodo elegir6nums y cambiado el nombre, además de añadir funcionalidad para elegir la cantidad de números" />
     <MESSAGE value="añadidio javadoc para elegirNums" />
     <MESSAGE value="añadida validación extra al menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="añadida validación extra al menu" />
+    <MESSAGE value="error elimination" />
+    <option name="LAST_COMMIT_MESSAGE" value="error elimination" />
   </component>
 </project>

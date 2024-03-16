@@ -99,21 +99,27 @@ public class LotteryGame {
 
         switch (option) {
             case 1:
+                //Play the uniqueGame game mode
                 uniqueGame();
                 break;
             case 2:
+                //Play the playTillWinWithRefound game mode
                 playTillWinWithRefound();
                 break;
             case 3:
+                //Play the playTillWinWithoutRefound game mode
                 playTillWinWithoutRefound();
                 break;
             case 4:
+                //Play the gameOf10000Draws game mode
                 gameOf10000Draws();
                 break;
             case 5:
+                //Play the playToWinSpecialPrize game mode
                 playToWinSpecialPrize();
                 break;
             case 6:
+                //Return to ticket menu
                 ticketMenu();
                 break;
             default:
@@ -231,10 +237,10 @@ public class LotteryGame {
 
     public void playTillWinWithRefound() {
         boolean prize = false;
-        int numberAttemps = 0;
+        int numberAttempts = 0;
 
         while (!prize) {
-            numberAttemps++;
+            numberAttempts++;
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
             int[] ticket = userTicket.getNumbers();
@@ -253,7 +259,8 @@ public class LotteryGame {
             }
 
             if (!anyPrizeWon) {
-                System.out.println("Unfortunately, you haven't won any prizes in the attemp number" + numberAttemps);
+                if (numberAttempts % 100000 == 0)
+                    System.out.println("Unfortunately, you have not won any prizes in " +numberAttempts + " attempts.");
             }
             bigDrum.resetBombo();
             littleDrum.resetBombo();
@@ -272,10 +279,10 @@ public class LotteryGame {
      */
     public void playTillWinWithoutRefound() {
         boolean prize = false;
-        int numberAttemps = 0;
+        int numberAttempts = 0;
 
         while (!prize) {
-            numberAttemps++;
+            numberAttempts++;
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
@@ -296,7 +303,8 @@ public class LotteryGame {
             }
 
             if (!anyPrizeWon) {
-                System.out.println("Unfortunately, you haven't won any prizes in the attemp number" + numberAttemps);
+                if (numberAttempts % 100000 == 0)
+                System.out.println("Unfortunately, you have not won any prizes in " +numberAttempts + " attempts.");
             }
 
             bigDrum.resetBombo();
@@ -348,18 +356,17 @@ public class LotteryGame {
      */
     private void playToWinSpecialPrize() {
         boolean prize = false;
-        int numberAttemps = 0;
-        long intento=0;
+        int numberAttempts = 0;
 
         while (!prize) {
-            numberAttemps++;
+            numberAttempts++;
 
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
             int[] ticket = userTicket.getNumbers();
-            intento++;
-            if(intento % 1000000 == 0){
-                System.out.println("intento"+intento);
+
+            if(numberAttempts % 100000000 == 0){
+                System.out.println("number of attempts: " + numberAttempts);
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
                 System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
                 System.out.println("Your numbers: " + userTicket);
@@ -375,6 +382,6 @@ public class LotteryGame {
             littleDrum.resetBombo();
         }
 
-        System.out.println("Number of draws until the special prize is won:  " + numberAttemps);
+        System.out.println("Number of draws until the special prize is won: " + numberAttempts);
     }
 }
