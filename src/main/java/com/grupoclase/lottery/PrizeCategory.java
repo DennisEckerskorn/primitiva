@@ -116,7 +116,6 @@ public enum PrizeCategory {
         if (userNumbers == null) {
             return false;
         }
-
         int matchingNumbers = 0;
         if(ticketReinbursment == drumReinbursment){
             matchingNumbers++;
@@ -130,6 +129,9 @@ public enum PrizeCategory {
             }else{
                 break;
             }
+        }
+        if(matchingNumbers <3){
+            return false;
         }
         return true;
     }
