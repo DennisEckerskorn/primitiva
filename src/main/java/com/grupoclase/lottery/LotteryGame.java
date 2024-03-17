@@ -262,14 +262,12 @@ public class LotteryGame {
             int[] ticket = userTicket.getNumbers();
             int complementaryTicket = userTicket.getComplementary();
 
-            while (!prize){
-                for (PrizeCategory category : PrizeCategory.values()) {
-                    if (category.isWinnerAny(firstDrumNumbers, ticket, complementaryTicket , complementaryDrum )) {
-                        System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
-                        System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
-                        System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
-                        prize = true;
-                    }
+            for (PrizeCategory category : PrizeCategory.values()) {
+                if (category.isWinnerAny(firstDrumNumbers, ticket, complementaryTicket , complementaryDrum )) {
+                    System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
+                    System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
+                    System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
+                    prize = true;
                 }
             }
 
