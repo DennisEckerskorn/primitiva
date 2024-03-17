@@ -39,7 +39,6 @@ public class LotteryDrum {
         for (int i = 0; i < ultimoNum; i++) {
             int num = i;
             array1.add(num+1);
-
         }
         bombo = array1;
     }
@@ -51,7 +50,6 @@ public class LotteryDrum {
      */
     public int[] extraerCombinacionGanadora (int cantidadNums){
         int[] arrayGanadores = new int[cantidadNums];
-
         for (int i = 0; i < cantidadNums; i++) {
             int posElegida = random.nextInt(bombo.size());
             int numElegido = bombo.remove(posElegida);

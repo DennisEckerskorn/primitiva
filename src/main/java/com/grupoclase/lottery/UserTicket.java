@@ -29,6 +29,7 @@ public class UserTicket {
     /**
      * Constructor for the UserTicket class when generating 6 main numbers, a random reinbursment, and a random complementary number.
      */
+
     public UserTicket() {
         this.numbers = generateRandomNumbers();
         this.reinbursment = new Random().nextInt(10); // Generate random reinbursment from 0 to 9
@@ -68,7 +69,7 @@ public class UserTicket {
      *
      * @return An array containing the 6 randomly generated main numbers.
      */
-    private int[] generateRandomNumbers() {
+    public int[] generateRandomNumbers() {
         LotteryDrum rand = new LotteryDrum(1,49);
         Random random = new Random();
         int[] randomNumbers = new int[6];
@@ -136,16 +137,6 @@ public class UserTicket {
         return "Reinbursment =" + reinbursment +
                 ", Complementary=" + complementary ;
     }
-
-
-    public void generateNumbers() {
-        Random random = new Random();
-        for (int i = 0; i < 6; i++) {
-            numbers[i] = random.nextInt(49) + 1;
-        }
-        generateComplementary();
-    }
-
     /**
      * Resets the numbers of the ticket to zero.
      */

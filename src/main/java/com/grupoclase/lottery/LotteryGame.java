@@ -202,7 +202,7 @@ public class LotteryGame {
      */
     public UserTicket obtainAutomaticTicket() {
         userTicket = new UserTicket();
-        userTicket.generateNumbers();
+        userTicket.generateRandomNumbers();
         System.out.println(userTicket);
         return userTicket;
     }
@@ -262,14 +262,45 @@ public class LotteryGame {
             int[] ticket = userTicket.getNumbers();
             int complementaryTicket = userTicket.getComplementary();
 
-            for (PrizeCategory category : PrizeCategory.values()) {
-                if (category.isWinnerAny(firstDrumNumbers, ticket, complementaryTicket , complementaryDrum )) {
-                    System.out.println("¡Congratulations! You have won in the category: " + category.getCategoryName());
+            int matchingNumbers =  PrizeCategory.FIRST.isWinnerAny(firstDrumNumbers,userTicket.getNumbers(),complementaryTicket,complementaryDrum);
+
+            switch (matchingNumbers){
+                case 0:
+                    break;
+                case 3:
+                    System.out.println("¡Congratulations! You have won in the category: 5º");
                     System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
                     System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
                     prize = true;
-                }
+                    break;
+                case 4:
+                    System.out.println("¡Congratulations! You have won in the category: 4º");
+                    System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
+                    System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
+                    prize = true;
+                    break;
+                case 5:
+                    System.out.println("¡Congratulations! You have won in the category: 3º");
+                    System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
+                    System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
+                    prize = true;
+                    break;
+                case 6:
+                    System.out.println("¡Congratulations! You have won in the category: 1º");
+                    System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
+                    System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
+                    prize = true;
+                    break;
+                case 7:
+                    System.out.println("¡Congratulations! You have won in the category: Specialº");
+                    System.out.println("Winning numbers of Drum:" + Arrays.toString(firstDrumNumbers) + "Complementary" + complementaryDrum);
+                    System.out.println("Your numbers: " + userTicket.getNumbersOnlyString() + " " + userTicket.getComplementaryOnlyString());
+                    prize = true;
+                    break;
+                default:
+                    break;
             }
+
 
             if (!prize) {
                 if (numberAttempts % 100000 == 0)

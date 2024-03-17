@@ -86,6 +86,16 @@ public enum PrizeCategory {
 
         return matchingNumbers >= this.matchingNumbers && matchingSpecialNumbers >= this.matchingSpecialNumbers;
     }
+    /**
+     * Checks if the user has won in the "All" category, where all numbers on the ticket match the drawn numbers,
+     * including the complementary number, and the number of matching numbers is equal to 7.
+     *
+     * @param drawnNumbers       The numbers drawn in the lottery.
+     * @param userNumbers        The numbers selected by the user on the lottery ticket.
+     * @param ticketReinbursment The complementary number selected by the user on the lottery ticket.
+     * @param drumReinbursment   The complementary number drawn in the lottery.
+     * @return {@code true} if the user has won in the "All" category, {@code false} otherwise.
+     */
     public boolean isWinnerAll(int[] drawnNumbers, int[] userNumbers, int ticketReinbursment, int drumReinbursment) {
         if (userNumbers == null) {
             return false;
@@ -112,9 +122,19 @@ public enum PrizeCategory {
         return false;
     }
 
-    public boolean isWinnerAny(int[] drawnNumbers, int[] userNumbers, int ticketReinbursment, int drumReinbursment) {
+    /**
+     * Checks the number of matching numbers between the user's selected numbers and the drawn numbers,
+     * including the complementary number if it matches, in order to determine the level of success in any category.
+     *
+     * @param drawnNumbers       The numbers drawn in the lottery.
+     * @param userNumbers        The numbers selected by the user on the lottery ticket.
+     * @param ticketReinbursment The complementary number selected by the user on the lottery ticket.
+     * @param drumReinbursment   The complementary number drawn in the lottery.
+     * @return The number of matching numbers between the user's numbers and the drawn numbers, including the complementary number if it matches.
+     */
+    public int isWinnerAny(int[] drawnNumbers, int[] userNumbers, int ticketReinbursment, int drumReinbursment) {
         if (userNumbers == null) {
-            return false;
+            return 0;
         }
         int matchingNumbers = 0;
         if(ticketReinbursment == drumReinbursment){
@@ -130,10 +150,7 @@ public enum PrizeCategory {
                 break;
             }
         }
-        if(matchingNumbers <3){
-            return false;
-        }
-        return true;
+        return matchingNumbers;
     }
 
     /**
