@@ -69,11 +69,10 @@ public class UserTicket {
      * @return An array containing the 6 randomly generated main numbers.
      */
     private int[] generateRandomNumbers() {
+        LotteryDrum rand = new LotteryDrum(1,49);
         Random random = new Random();
         int[] randomNumbers = new int[6];
-        for (int i = 0; i < 6; i++) {
-            randomNumbers[i] = random.nextInt(49) + 1;
-        }
+        randomNumbers = rand.extraerCombinacionGanadora(6);
         return randomNumbers;
     }
 
