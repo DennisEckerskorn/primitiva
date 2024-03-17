@@ -73,6 +73,7 @@ public class UserTicket {
         Random random = new Random();
         int[] randomNumbers = new int[6];
         randomNumbers = rand.extraerCombinacionGanadora(6);
+        rand.resetBombo();
         return randomNumbers;
     }
 
