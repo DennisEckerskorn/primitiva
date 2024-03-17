@@ -6,16 +6,16 @@ import com.grupoclase.lib.LibIO;
 import java.util.Arrays;
 
 /*
-Classe que maneja la entrada/salida y los menus de la primitiva.
+Class which manages the menus and the user input/output. It also contains the game modes of each game...
  */
 
 public class LotteryGame {
-    private ConsoleMenu mainMenu;
-    private ConsoleMenu subMenuTicket;
-    private ConsoleMenu subMenuGameMode;
+    private final ConsoleMenu mainMenu;
+    private final ConsoleMenu subMenuTicket;
+    private final ConsoleMenu subMenuGameMode;
     private UserTicket userTicket;
-    private LotteryDrum bigDrum;
-    private LotteryDrum littleDrum;
+    private final LotteryDrum bigDrum;
+    private final LotteryDrum littleDrum;
 
     /**
      * Constructs a new instance of the LotteryGame class.
@@ -25,8 +25,8 @@ public class LotteryGame {
         bigDrum = new LotteryDrum(1, 49);
         littleDrum = new LotteryDrum(0, 9);
         userTicket = new UserTicket();
-        System.out.println(bigDrum); //todo: TESTING PURPOSE
-        System.out.println(littleDrum); //TODO: TESTING PURPOSE
+        System.out.println(bigDrum); //TODO: TESTING PURPOSE, REMOVE WHEN FINISHED
+        System.out.println(littleDrum); //TODO: TESTING PURPOSE, REMOVE WHEN FINISHED
 
         mainMenu = new ConsoleMenu("LOTTERY");
         mainMenu.addOpcion("Play Game");
@@ -48,6 +48,10 @@ public class LotteryGame {
         displayMainMenu();
     }
 
+    /**
+     * Main Menu, this menu offers to start the game or to exit the game.
+     * This menu is the first menu which is shown...
+     */
     private void displayMainMenu() {
         int option;
 
@@ -68,6 +72,10 @@ public class LotteryGame {
         } while (option != 2);
     }
 
+    /**
+     * Ticket Menu, this menu offers to obtain the user ticket manual or automatically.
+     * It also offers to return to the main menu.
+     */
     private void ticketMenu() {
         int option = subMenuTicket.mostrarMenuInt();
 
@@ -88,12 +96,13 @@ public class LotteryGame {
                 System.out.println("The introduced number is not in range [ 1 - 3]");
                 break;
         }
-        //al "arrayDeEnteros" habrá que sumarle los números del reintegro, es decir crear un nuevo array con una capacidad superior al "arrayDeEnteros"
-        //usando un bucle for hay que copiar arrayDeEnteros uno por uno al nuevo array con mayor capacidad y agregar los números aleatorios del reintegro al final del array nuevo, el array nuevo se llamará "arrayTicket"
-        //ticket = arrayTicket;
         subMenuGameMode();
     }
 
+    /**
+     * Game Mode Menu, this menu offers the different game modes.
+     * It also offers an option to return to the Ticket Menu to generate different numbers without leaving the game.
+     */
     private void subMenuGameMode() {
         int option = subMenuGameMode.mostrarMenuInt();
 
@@ -129,15 +138,17 @@ public class LotteryGame {
     }
 
 
-    //Solicitar datos:
+    // *** DATA INPUT + GAME MODE METHODS ***
 
     /**
-     * Method which first checks if the array is null or size equal to 0; otherwise, it resets the array to 0 values.
-     * This way, the user can always introduce new numbers in case they play several times.
-     * The next step is asking the user for the 6 numbers. The additional 7th number is added randomly.
-     * If the numbers have been added correctly, it prints them to confirm; otherwise, it prints ERROR.
+     * Method checks if the array is null or size equals 0; if so, it initializes the array.
+     * Otherwise, it resets the array to 0 values.
+     * This allows the user to input new numbers, especially if playing multiple times.
+     * The method prompts the user for 6 numbers, and adds a 7th number randomly.
+     * If the numbers are added correctly, it prints them to confirm; otherwise, it prints "ERROR".
      *
-     * @return ticketManual with numbers, including the 7th number added randomly (refund).
+     * @param quantityNumbers the number of numbers to be input by the user
+     * @return ticketManual with the user-provided numbers, including the 7th randomly added number
      */
     public UserTicket obtainUserNumbersManual(int quantityNumbers) {
         if (userTicket == null || userTicket.getNumbers().length == 0) {
@@ -149,9 +160,6 @@ public class LotteryGame {
         }
 
         int[] userInputNumbers = new int[quantityNumbers];
-
-        //Problema al validar la repeticion de los numeros de cada posicion del array.
-
 
         for (int i = 0; i < quantityNumbers; i++) {
             userInputNumbers[i] = LibIO.requestIntValidating("Introduce the number " + (i + 1) + " of your Ticket:", 0, 49);
@@ -170,6 +178,14 @@ public class LotteryGame {
         }
     }
 
+    /**
+     * Checks if a number is repeated within a given array up to a certain position.
+     *
+     * @param numbers  the array of numbers to be checked for repetition
+     * @param position the position up to which to check for repetition
+     * @param number   the number to be checked for repetition
+     * @return true if the number is repeated within the array up to the specified position, false otherwise
+     */
     private boolean validateRepeatedNumber(int[] numbers, int position, int number) {
         for (int i = 0; i < position; i++) {
             if (numbers[i] == number) {
@@ -191,14 +207,13 @@ public class LotteryGame {
         return userTicket;
     }
 
-
     /**
-     * Performs a single round of lottery game, where the winning numbers are drawn from two drums and compared with the user's ticket
+     * Performs a single round of the lottery game, where the winning numbers are drawn from two drums and compared with the user's ticket
      * to determine if any prize has been won.
-     * Draws the winning numbers from the first drum and the second drum, as well as the numbers from the user's ticket.
-     * Compares the numbers on the user's ticket with the winning numbers for each prize category.
+     * It draws the winning numbers from the first drum and the second drum, as well as retrieves the numbers from the user's ticket.
+     * Then, it compares the numbers on the user's ticket with the winning numbers for each prize category.
      * If the user has won in any category, a congratulations message is displayed.
-     * Otherwise, a message indicating no prize has been won is displayed.
+     * Otherwise, a message indicating that no prize has been won is displayed.
      */
     private void uniqueGame() {
         //Se gira el bombo y se extraen los números:
@@ -223,7 +238,6 @@ public class LotteryGame {
             System.out.println("Unfortunately, you haven't won any prizes this time...");
         }
     }
-
 
     /**
      * Plays the lottery until winning a prize including the refund.
@@ -260,7 +274,7 @@ public class LotteryGame {
 
             if (!anyPrizeWon) {
                 if (numberAttempts % 100000 == 0)
-                    System.out.println("Unfortunately, you have not won any prizes in " +numberAttempts + " attempts.");
+                    System.out.println("Unfortunately, you have not won any prizes in " + numberAttempts + " attempts.");
             }
             bigDrum.resetBombo();
             littleDrum.resetBombo();
@@ -304,7 +318,7 @@ public class LotteryGame {
 
             if (!anyPrizeWon) {
                 if (numberAttempts % 100000 == 0)
-                System.out.println("Unfortunately, you have not won any prizes in " +numberAttempts + " attempts.");
+                    System.out.println("Unfortunately, you have not won any prizes in " + numberAttempts + " attempts.");
             }
 
             bigDrum.resetBombo();
@@ -346,7 +360,6 @@ public class LotteryGame {
         }
     }
 
-
     /**
      * Performs draws until winning a prize in the special category.
      * After each draw, the winning numbers are compared with the user's ticket numbers
@@ -365,7 +378,7 @@ public class LotteryGame {
             int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
             int[] ticket = userTicket.getNumbers();
 
-            if(numberAttempts % 100000000 == 0){
+            if (numberAttempts % 100000000 == 0) {
                 System.out.println("number of attempts: " + numberAttempts);
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
                 System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
