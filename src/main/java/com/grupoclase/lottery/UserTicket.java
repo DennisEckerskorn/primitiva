@@ -9,29 +9,29 @@ import java.util.Scanner;
  */
 public class UserTicket {
     private int[] numbers;
-    private int reimbursement;
+    private int reinbursment;
     private int complementary;
 
     /**
      * Constructor for the UserTicket class when prompting the user for 6 main numbers and a complementary number.
-     * The reimbursement number is generated randomly.
+     * The reinbursment number is generated randomly.
      */
     public UserTicket(int[] inputNumbers) {
         if (inputNumbers.length == 6) {
             this.numbers = inputNumbers;
             this.complementary = inputComplementary();
-            this.reimbursement = new Random().nextInt(10); // Generate random reimbursement from 0 to 9
+            this.reinbursment = new Random().nextInt(10); // Generate random reinbursment from 0 to 9
         } else {
             throw new IllegalArgumentException("Invalid number of input numbers. The ticket requires exactly 6 numbers.");
         }
     }
 
     /**
-     * Constructor for the UserTicket class when generating 6 main numbers, a random reimbursement, and a random complementary number.
+     * Constructor for the UserTicket class when generating 6 main numbers, a random reinbursment, and a random complementary number.
      */
     public UserTicket() {
         this.numbers = generateRandomNumbers();
-        this.reimbursement = new Random().nextInt(10); // Generate random reimbursement from 0 to 9
+        this.reinbursment = new Random().nextInt(10); // Generate random reinbursment from 0 to 9
         this.complementary = generateComplementary();
     }
 
@@ -96,14 +96,14 @@ public class UserTicket {
     }
 
 
-    // Getters and setters for reimbursement and complementary numbers
+    // Getters and setters for reinbursment and complementary numbers
 
     public int getReimbursement() {
-        return reimbursement;
+        return reinbursment;
     }
 
-    public void setReimbursement(int reimbursement) {
-        this.reimbursement = reimbursement;
+    public void setReimbursement(int reinbursment) {
+        this.reinbursment = reinbursment;
     }
 
     public int getComplementary() {
@@ -118,9 +118,23 @@ public class UserTicket {
     public String toString() {
         return "UserTicket{" +
                 "numbers=" + Arrays.toString(numbers) +
-                ", reimbursement=" + reimbursement +
+                ", reinbursment=" + reinbursment +
                 ", complementary=" + complementary +
                 '}';
+    }
+
+    public String getNumbersOnlyString(){
+        return "Your numbers = " + Arrays.toString(numbers);
+    }
+    public String getReinbursmentOnlyString(){
+        return "Reinbursement=" + reinbursment;
+    }
+    public String getComplementaryOnlyString(){
+        return "Complementary=" + complementary;
+    }
+    public String getComplementaryAndReinbursmentString(){
+        return "Reinbursment =" + reinbursment +
+                ", Complementary=" + complementary ;
     }
 
 
@@ -139,7 +153,7 @@ public class UserTicket {
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = 0;
         }
-        reimbursement = 0;
+        reinbursment = 0;
     }
 
     /**
