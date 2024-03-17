@@ -63,12 +63,14 @@ public enum PrizeCategory {
         int matchingNumbers = 0;
         int matchingSpecialNumbers = 0;
 
-        for (int i = 0; i < userNumbers.length; i++) {
+        for (int i = userNumbers.length-1; i >= 0 ; i--) {
             int userNumber = userNumbers[i];
             int drawnNumber = drawnNumbers[i];
 
             if (userNumber == drawnNumber) {
                 matchingNumbers++;
+            } else {
+                break;
             }
         }
 
@@ -84,7 +86,31 @@ public enum PrizeCategory {
 
         return matchingNumbers >= this.matchingNumbers && matchingSpecialNumbers >= this.matchingSpecialNumbers;
     }
+    public boolean isWinner(int[] drawnNumbers, int[] userNumbers, int ticketReinbursment, int drumReinbursment) {
+        if (userNumbers == null) {
+            return false;
+        }
 
+        int matchingNumbers = 0;
+        if(ticketReinbursment == drumReinbursment){
+            matchingNumbers++;
+            for (int i = userNumbers.length-1; i >= 0 ; i--) {
+                int userNumber = userNumbers[i];
+                int drawnNumber = drawnNumbers[i];
+
+                if (userNumber == drawnNumber) {
+                    matchingNumbers++;
+                }else{
+                    break;
+                }
+            }
+            if (matchingNumbers == 7){
+                return true;
+            }
+        }
+
+        return false;
+    }
     /**
      * Overrides the default toString method to provide a meaningful string representation of PrizeCategory.
      *

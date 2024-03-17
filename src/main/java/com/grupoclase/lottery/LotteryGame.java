@@ -373,21 +373,25 @@ public class LotteryGame {
 
         while (!prize) {
             numberAttempts++;
-
+            int[] ticket = new int[8];
             int[] firstDrumNumbers = bigDrum.extraerCombinacionGanadora(6);
-            int[] secondDrumNumbers = littleDrum.extraerCombinacionGanadora(2);
-            int[] ticket = userTicket.getNumbers();
+            int[] reinbursmentDrumArray = littleDrum.extraerCombinacionGanadora(1);
+            int reinbursmentDrum;
+            ticket = userTicket.getNumbers();
+            int reinbursmentTicket = userTicket.getReimbursement();
 
-            if (numberAttempts % 100000000 == 0) {
+            reinbursmentDrum = reinbursmentDrumArray[0];
+
+            if (numberAttempts % 1000000 == 0) {
                 System.out.println("number of attempts: " + numberAttempts);
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
-                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(reinbursmentDrumArray));
                 System.out.println("Your numbers: " + userTicket);
             }
-            if (PrizeCategory.SPECIAL.isWinner(firstDrumNumbers, ticket, secondDrumNumbers)) {
+            if (PrizeCategory.SPECIAL.isWinner(firstDrumNumbers, ticket, reinbursmentTicket,reinbursmentDrum)) {
                 System.out.println("¡Congratulations!, you have won the special prize ");
                 System.out.println("Winning numbers of the first Drum:" + Arrays.toString(firstDrumNumbers));
-                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(secondDrumNumbers));
+                System.out.println("Winning numbers of the second Drum: " + Arrays.toString(reinbursmentDrumArray));
                 System.out.println("Your numbers: " + userTicket);
                 prize = true;
             }
